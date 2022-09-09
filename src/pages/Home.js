@@ -3,9 +3,9 @@
   * Muse Ant Design Dashboard - v1.0.0
   =========================================================
   * Product Page: https://www.creative-tim.com/product/muse-ant-design-Dashboard
-  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+  * Copyright2022 Psyc Team (https://www.creative-tim.com)
   * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-Dashboard/blob/main/LICENSE.md)
-  * Coded by Creative Tim
+  * Coded by Psyc Team
   =========================================================
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
@@ -47,6 +47,9 @@ import team4 from "../assets/images/team-4.jpg";
 import card from "../assets/images/info-card-1.jpg";
 
 function Home() {
+
+  const[loading, setLoading] = useState(true);
+  
   const { Title, Text } = Typography;
 
   const onChange = (e) => console.log(`radio checked:${e.target.value}`);
@@ -161,6 +164,13 @@ function Home() {
     //   icon: heart,
     //   bnb: "redtext",
     // },
+    {
+      today: "Đơn hàng trong ngày",
+      title: "13",
+      // persent: "10%",
+      icon: cart,
+      bnb: "bnb2",
+    },
     {
       today: "Đơn hàng trong ngày",
       title: "13",
@@ -387,7 +397,7 @@ function Home() {
         </Row>
 
         <Row gutter={[24, 0]}>
-          <Col xs={24} sm={24} md={12} lg={12} xl={16} className="mb-24">
+          <Col xs={24} sm={24} md={12} lg={12} xl={24} className="mb-24">
             <Card bordered={false} className="criclebox cardbody h-full">
               <div className="project-ant">
                 <div>
@@ -456,7 +466,7 @@ function Home() {
               </div>
             </Card>
           </Col>
-          <Col xs={24} sm={24} md={12} lg={12} xl={8} className="mb-24">
+          {/* <Col xs={24} sm={24} md={12} lg={12} xl={8} className="mb-24">
             <Card bordered={false} className="criclebox h-full">
               <div className="timeline-box">
                 <Title level={5}>Orders History</Title>
@@ -485,10 +495,10 @@ function Home() {
                 </Button>
               </div>
             </Card>
-          </Col>
+          </Col> */}
         </Row>
 
-        <Row gutter={[24, 0]}>
+        {/* <Row gutter={[24, 0]}>
           <Col xs={24} md={12} sm={24} lg={12} xl={14} className="mb-24">
             <Card bordered={false} className="criclebox h-full">
               <Row gutter>
@@ -552,7 +562,7 @@ function Home() {
               </div>
             </Card>
           </Col>
-        </Row>
+        </Row> */}
       </div>
     </>
   );

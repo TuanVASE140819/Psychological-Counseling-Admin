@@ -3,9 +3,9 @@
   * Muse Ant Design Dashboard - v1.0.0
   =========================================================
   * Product Page: https://www.creative-tim.com/product/muse-ant-design-Dashboard
-  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+  * Copyright2022 Psyc Team (https://www.creative-tim.com)
   * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-Dashboard/blob/main/LICENSE.md)
-  * Coded by Creative Tim
+  * Coded by Psyc Team
   =========================================================
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */

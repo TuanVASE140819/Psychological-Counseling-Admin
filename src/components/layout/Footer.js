@@ -3,9 +3,9 @@
   * Muse Ant Design Dashboard - v1.0.0
   =========================================================
   * Product Page: https://www.creative-tim.com/product/muse-ant-design-Dashboard
-  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+  * Copyright2022 Psyc Team (https://www.creative-tim.com)
   * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-Dashboard/blob/main/LICENSE.md)
-  * Coded by Creative Tim
+  * Coded by Psyc Team
   =========================================================
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
@@ -21,12 +21,12 @@ function Footer() {
       <Row className="just">
         <Col xs={24} md={12} lg={12}>
           <div className="copyright">
-            © 2021, made with
+            ©2022, thuộc quyền sở hữu bản quyền về
             {<HeartFilled />} by
             <a href="#pablo" className="font-weight-bold" target="_blank">
-              Creative Tim
+              Psyc Team
             </a>
-            for a better web.
+             
           </div>
         </Col>
         <Col xs={24} md={12} lg={12}>
@@ -38,7 +38,7 @@ function Footer() {
                   className="nav-link text-muted"
                   target="_blank"
                 >
-                  Creative Tim
+                  Psyc Team
                 </a>
               </li>
               <li className="nav-item">

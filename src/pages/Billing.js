@@ -3,9 +3,9 @@
   * Muse Ant Design Dashboard - v1.0.0
   =========================================================
   * Product Page: https://www.creative-tim.com/product/muse-ant-design-Dashboard
-  * Copyright 2021 Creative Tim (https://www.creative-tim.com)
+  * Copyright2022 Psyc Team (https://www.creative-tim.com)
   * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-Dashboard/blob/main/LICENSE.md)
-  * Coded by Creative Tim
+  * Coded by Psyc Team
   =========================================================
   * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
@@ -29,12 +29,12 @@ import visa from "../assets/images/visa-logo.png";
 function Billing() {
   const data = [
     {
-      title: "March, 01, 2021",
+      title: "March, 01,2022",
       description: "#MS-415646",
       amount: "$180",
     },
     {
-      title: "February, 12, 2021",
+      title: "February, 12,2022",
       description: "#RV-126749",
       amount: "$250",
     },
@@ -269,7 +269,7 @@ function Billing() {
       headding: <h6>NEWEST</h6>,
       avatar: mins,
       title: "Netflix",
-      description: "27 March 2021, at 12:30 PM",
+      description: "27 March2022, at 12:30 PM",
       amount: "- $2,500",
       textclass: "text-light-danger",
       amountcolor: "text-danger",
@@ -277,7 +277,7 @@ function Billing() {
     {
       avatar: <PlusOutlined style={{ fontSize: 10 }} />,
       title: "Apple",
-      description: "27 March 2021, at 04:30 AM",
+      description: "27 March2022, at 04:30 AM",
       amount: "+ $2,000",
       textclass: "text-fill",
       amountcolor: "text-success",
@@ -287,7 +287,7 @@ function Billing() {
     {
       avatar: <PlusOutlined style={{ fontSize: 10 }} />,
       title: "Stripe",
-      description: "26 March 2021, at 12:30 AM",
+      description: "26 March2022, at 12:30 AM",
       amount: "+ $750",
       textclass: "text-fill",
       amountcolor: "text-success",
@@ -295,15 +295,15 @@ function Billing() {
     {
       avatar: <PlusOutlined style={{ fontSize: 10 }} />,
       title: "HubSpot",
-      description: "26 March 2021, at 11:30 AM",
+      description: "26 March2022, at 11:30 AM",
       amount: "+ $1,050",
       textclass: "text-fill",
       amountcolor: "text-success",
     },
     {
       avatar: <PlusOutlined style={{ fontSize: 10 }} />,
-      title: "Creative Tim",
-      description: "26 March 2021, at 07:30 AM",
+      title: "Psyc Team",
+      description: "26 March2022, at 07:30 AM",
       amount: "+ $2,400",
       textclass: "text-fill",
       amountcolor: "text-success",
@@ -311,7 +311,7 @@ function Billing() {
     {
       avatar: <ExclamationOutlined style={{ fontSize: 10 }} />,
       title: "Webflow",
-      description: "26 March 2021, at 04:00 AM",
+      description: "26 March2022, at 04:00 AM",
       amount: "Pending",
       textclass: "text-warning",
       amountcolor: "text-warning-b",
@@ -500,7 +500,7 @@ function Billing() {
             extra={
               <p className="card-header-date">
                 {calender}
-                <span>23 - 30 March 2021</span>
+                <span>23 - 30 March2022</span>
               </p>
             }
           >
