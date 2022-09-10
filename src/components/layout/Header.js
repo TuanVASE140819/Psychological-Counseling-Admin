@@ -40,7 +40,7 @@ import avtar from "../../assets/images/team-2.jpg";
 
 const ButtonContainer = styled.div`
   .ant-btn-primary {
-    background-color: #1890ff;
+    background-color: #e16ce6;
   }
   .ant-btn-success {
     background-color: #52c41a;
@@ -55,7 +55,7 @@ const ButtonContainer = styled.div`
     border-radius: 5px;
   }
   .ant-switch-active {
-    background-color: #1890ff;
+    background-color: #e16ce6;
   }
 `;
 
@@ -336,7 +336,7 @@ function Header({
                   <ButtonContainer>
                     <Button
                       type="primary"
-                      onClick={() => handleSidenavColor("#1890ff")}
+                      onClick={() => handleSidenavColor("#e16ce6")}
                     >
                       1
                     </Button>

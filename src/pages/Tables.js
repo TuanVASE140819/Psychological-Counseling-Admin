@@ -116,7 +116,7 @@ const data = [
     status: (
       <>
         <Button type="primary" className="tag-primary">
-          ONLINE
+          TRỰC TUYẾN
         </Button>
       </>
     ),
@@ -159,7 +159,7 @@ const data = [
 
     status: (
       <>
-        <Button className="tag-badge">ONLINE</Button>
+        <Button className="tag-badge">TRỰC TUYẾN</Button>
       </>
     ),
     employed: (
@@ -202,7 +202,7 @@ const data = [
     status: (
       <>
         <Button type="primary" className="tag-primary">
-          ONLINE
+        TRỰC TUYẾN
         </Button>
       </>
     ),
@@ -245,7 +245,7 @@ const data = [
     status: (
       <>
         <Button type="primary" className="tag-primary">
-          ONLINE
+        TRỰC TUYẾN
         </Button>
       </>
     ),
@@ -287,7 +287,7 @@ const data = [
 
     status: (
       <>
-        <Button className="tag-badge">ONLINE</Button>
+        <Button className="tag-badge">TRỰC TUYẾN</Button>
       </>
     ),
     employed: (
@@ -329,7 +329,7 @@ const data = [
 
     status: (
       <>
-        <Button className="tag-badge">ONLINE</Button>
+        <Button className="tag-badge">TRỰC TUYẾN</Button>
       </>
     ),
     employed: (
@@ -601,8 +601,8 @@ function Tables() {
               extra={
                 <>
                   <Radio.Group onChange={onChange} defaultValue="a">
-                    <Radio.Button value="a">All</Radio.Button>
-                    <Radio.Button value="b">ONLINE</Radio.Button>
+                    <Radio.Button value="a">TẤT CẢ</Radio.Button>
+                    <Radio.Button value="b">TRỰC TUYẾN</Radio.Button>
                   </Radio.Group>
                 </>
               }
@@ -624,8 +624,8 @@ function Tables() {
               extra={
                 <>
                   <Radio.Group onChange={onChange} defaultValue="all">
-                    <Radio.Button value="all">All</Radio.Button>
-                    <Radio.Button value="online">ONLINE</Radio.Button>
+                    <Radio.Button value="all">TẤT CẢ</Radio.Button>
+                    <Radio.Button value="online">TRỰC TUYẾN</Radio.Button>
                     <Radio.Button value="store">STORES</Radio.Button>
                   </Radio.Group>
                 </>

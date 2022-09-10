@@ -409,9 +409,9 @@ function Home() {
                 <div className="ant-filtertabs">
                   <div className="antd-pro-pages-Dashboard-analysis-style-salesExtra">
                     <Radio.Group onChange={onChange} defaultValue="a">
-                      <Radio.Button value="a">ALL</Radio.Button>
-                      <Radio.Button value="b">ONLINE</Radio.Button>
-                      <Radio.Button value="c">STORES</Radio.Button>
+                      <Radio.Button value="a">TẤT CẢ</Radio.Button>
+                      <Radio.Button value="b">TRỰC TUYẾN</Radio.Button>
+                      {/* <Radio.Button value="c">STORES</Radio.Button> */}
                     </Radio.Group>
                   </div>
                 </div>
