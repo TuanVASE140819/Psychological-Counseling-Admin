@@ -3,9 +3,9 @@
 * Muse Ant Design Dashboard - v1.0.0
 =========================================================
 * Product Page: https://www.creative-tim.com/product/muse-ant-design-Dashboard
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
+* Copyright2022 Pysc Team (https://www.creative-tim.com)
 * Licensed under MIT (https://github.com/creativetimofficial/muse-ant-design-Dashboard/blob/main/LICENSE.md)
-* Coded by Creative Tim
+* Coded by Pysc Team
 =========================================================
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 */
@@ -62,7 +62,7 @@ const formProps = {
 // table code start
 const columns = [
   {
-    title: "AUTHOR",
+    title: "TK",
     dataIndex: "name",
     key: "name",
     width: "32%",
@@ -74,7 +74,7 @@ const columns = [
   },
 
   {
-    title: "STATUS",
+    title: "TRẠNG THÁI",
     key: "status",
     dataIndex: "status",
   },
@@ -116,7 +116,7 @@ const data = [
     status: (
       <>
         <Button type="primary" className="tag-primary">
-          ONLINE
+          TRỰC TUYẾN
         </Button>
       </>
     ),
@@ -159,7 +159,7 @@ const data = [
 
     status: (
       <>
-        <Button className="tag-badge">ONLINE</Button>
+        <Button className="tag-badge">TRỰC TUYẾN</Button>
       </>
     ),
     employed: (
@@ -202,7 +202,7 @@ const data = [
     status: (
       <>
         <Button type="primary" className="tag-primary">
-          ONLINE
+        TRỰC TUYẾN
         </Button>
       </>
     ),
@@ -245,7 +245,7 @@ const data = [
     status: (
       <>
         <Button type="primary" className="tag-primary">
-          ONLINE
+        TRỰC TUYẾN
         </Button>
       </>
     ),
@@ -287,7 +287,7 @@ const data = [
 
     status: (
       <>
-        <Button className="tag-badge">ONLINE</Button>
+        <Button className="tag-badge">TRỰC TUYẾN</Button>
       </>
     ),
     employed: (
@@ -329,7 +329,7 @@ const data = [
 
     status: (
       <>
-        <Button className="tag-badge">ONLINE</Button>
+        <Button className="tag-badge">TRỰC TUYẾN</Button>
       </>
     ),
     employed: (
@@ -597,12 +597,12 @@ function Tables() {
             <Card
               bordered={false}
               className="criclebox tablespace mb-24"
-              title="Authors Table"
+              title="Bảng người dùng"
               extra={
                 <>
                   <Radio.Group onChange={onChange} defaultValue="a">
-                    <Radio.Button value="a">All</Radio.Button>
-                    <Radio.Button value="b">ONLINE</Radio.Button>
+                    <Radio.Button value="a">TẤT CẢ</Radio.Button>
+                    <Radio.Button value="b">TRỰC TUYẾN</Radio.Button>
                   </Radio.Group>
                 </>
               }
@@ -624,8 +624,8 @@ function Tables() {
               extra={
                 <>
                   <Radio.Group onChange={onChange} defaultValue="all">
-                    <Radio.Button value="all">All</Radio.Button>
-                    <Radio.Button value="online">ONLINE</Radio.Button>
+                    <Radio.Button value="all">TẤT CẢ</Radio.Button>
+                    <Radio.Button value="online">TRỰC TUYẾN</Radio.Button>
                     <Radio.Button value="store">STORES</Radio.Button>
                   </Radio.Group>
                 </>

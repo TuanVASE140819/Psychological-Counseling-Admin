@@ -178,7 +178,7 @@ function Sidenav({ color }) {
             >
               {Dashboard}
             </span>
-            <span className="label">Dashboard</span>
+            <span className="label">Bảng điều khiển</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item key="2">
@@ -208,7 +208,7 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
         {/* <Menu.Item key="4">
-          <NavLink to="/rtl">
+          <NavLink to="/consultant">
             <span
               className="icon"
               style={{
@@ -220,6 +220,19 @@ function Sidenav({ color }) {
             <span className="label">RTL</span>
           </NavLink>
         </Menu.Item> */}
+         <Menu.Item key="4">
+          <NavLink to="/consultant">
+            <span
+              className="icon"
+              style={{
+                background: page === "consultant" ? color : "",
+              }}
+            >
+              {tables}
+            </span>
+            <span className="label">Tư vấn viên</span>
+          </NavLink>
+        </Menu.Item>
         <Menu.Item className="menu-item-header" key="5">
           Account Pages
         </Menu.Item>
@@ -249,7 +262,7 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
       </Menu>
-      <div className="aside-footer">
+      {/* <div className="aside-footer">
         <div
           className="footer-box"
           style={{
@@ -265,7 +278,7 @@ function Sidenav({ color }) {
             DOCUMENTATION
           </Button>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
