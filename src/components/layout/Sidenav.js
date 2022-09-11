@@ -220,6 +220,8 @@ function Sidenav({ color }) {
             <span className="label">RTL</span>
           </NavLink>
         </Menu.Item> */}
+
+        
          <Menu.Item key="4">
           <NavLink to="/consultant">
             <span
@@ -233,6 +235,28 @@ function Sidenav({ color }) {
             <span className="label">Tư vấn viên</span>
           </NavLink>
         </Menu.Item>
+
+
+
+        
+
+         <Menu.Item key="̀">
+          <NavLink to="/shop">
+            <span
+              className="icon"
+              style={{
+                background: page === "shop" ? color : "",
+              }}
+            >
+              {tables}
+            </span>
+            <span className="label">Shop</span>
+          </NavLink>
+        </Menu.Item>
+
+
+
+        
         <Menu.Item className="menu-item-header" key="5">
           Account Pages
         </Menu.Item>
