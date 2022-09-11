@@ -126,7 +126,7 @@ export default class SignUp extends Component {
     return (
       <>
         <div className="layout-default ant-layout layout-sign-up">
-          <Header>
+          {/* <Header>
             <div className="header-col header-brand">
               <h5>Trang tổng quan Pysc</h5>
             </div>
@@ -161,7 +161,7 @@ export default class SignUp extends Component {
             <div className="header-col header-btn">
               <Button type="false">FREE DOWNLOAD</Button>
             </div>
-          </Header>
+          </Header> */}
 
           <Content className="p-0">
             <div className="sign-up-header">
