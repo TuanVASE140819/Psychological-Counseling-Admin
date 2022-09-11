@@ -19,6 +19,7 @@ import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import Main from "./components/layout/Main";
 import Consutant from "./pages/Consultant";
+import Shop from "./pages/Shop";
 import "antd/dist/antd.css";
 import "./assets/styles/main.css";
 import "./assets/styles/responsive.css";
@@ -38,6 +39,7 @@ function App () {
             <Route exact path="/profile" component={Profile} />
             <Redirect from="*" to="/Dashboard" />
             <Route exact path="/consultant" component={Consutant} />
+            <Route exact path="/Shop" component={Shop} />
           </Main>
         </Switch></BrowserRouter>
 
