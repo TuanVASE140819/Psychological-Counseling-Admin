@@ -6,7 +6,7 @@ function Zodiac() {
       <section className="as_horoscope_wrapper as_padderBottom80 as_padderTop80">
         <div className="container_as_wrapper">
           <div className="row_as_wrapper">
-            <div className="col-lg-12 col-md-12 text-centerr">
+            {/* <div className="col-lg-12 col-md-12 text-centerr">
               <h1 className="as_heading">Horoscope Forecasts</h1>
               <span>
                 <svg
@@ -30,7 +30,7 @@ function Zodiac() {
                 by the readable content of a page <br />
                 when looking at its layout. The point of using Lorem Ipsum .
               </p>
-            </div>
+            </div> */}
             <div className="col-lg-2 col-sm-4 col-xs-6">
               <div className="as_sign_box text-centerr">
                 <a href="service_single.html">
@@ -38,7 +38,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh1.svg?alt=media&token=0eefc484-fd9c-4960-8f84-e250d47a83ed" alt />
                   </span>
                   <div>
-                    <h5>Aries</h5>
+                    <h5>Bạch Dương</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
@@ -51,7 +51,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh2.svg?alt=media&token=66939bb6-ad7e-4e32-8643-12104cdea364" alt />
                   </span>
                   <div>
-                    <h5>Taurus</h5>
+                    <h5>Kim Ngưu</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
@@ -64,7 +64,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh3.svg?alt=media&token=dc84012e-76d1-4fa8-b650-6145525df2dd" alt />
                   </span>
                   <div>
-                    <h5>Gemini</h5>
+                    <h5>Song Tử</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
@@ -77,7 +77,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh4.svg?alt=media&token=3bc262f7-275f-44be-8106-b2b49869bad4" alt />
                   </span>
                   <div>
-                    <h5>Cancer</h5>
+                    <h5>Cự Giải</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
@@ -90,7 +90,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh5.svg?alt=media&token=88182494-cfa9-4995-a8fc-78b42fd49891" alt />
                   </span>
                   <div>
-                    <h5>Leo</h5>
+                    <h5>Sư Tử</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
@@ -103,7 +103,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh6.svg?alt=media&token=6070a619-c60a-44b7-a588-dc218c800cad" alt />
                   </span>
                   <div>
-                    <h5>Virgo</h5>
+                    <h5>Xử Nữ</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
@@ -116,7 +116,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh7.svg?alt=media&token=7c5b93f6-b977-4a60-b2ba-6ce2f1f416dc" alt />
                   </span>
                   <div>
-                    <h5>Libra</h5>
+                    <h5>Thiên Bình</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
@@ -129,7 +129,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh8.svg?alt=media&token=2b076948-93c6-48ea-9f31-004e36be5971" alt />
                   </span>
                   <div>
-                    <h5>Scorpio</h5>
+                    <h5>Bọ Cạp</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
@@ -142,7 +142,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh9.svg?alt=media&token=0eb0ffe4-ec4a-4936-aa6b-37b5367faede" alt />
                   </span>
                   <div>
-                    <h5>Sagittairus</h5>
+                    <h5>Nhân Mã</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
@@ -155,7 +155,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh10.svg?alt=media&token=12ec1cac-4bcf-4803-84fc-fd679039e759" alt />
                   </span>
                   <div>
-                    <h5>Capricorn</h5>
+                    <h5>Ma Kết</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
@@ -168,7 +168,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh11.svg?alt=media&token=24daedbb-378b-4252-a998-42bf84001427" alt />
                   </span>
                   <div>
-                    <h5>Aquarius</h5>
+                    <h5>Bảo Bình</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
@@ -181,7 +181,7 @@ function Zodiac() {
                     <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh12.svg?alt=media&token=14096dd8-98a7-434b-aa11-7281e84ef6fb" alt />
                   </span>
                   <div>
-                    <h5>Pisces</h5>
+                    <h5>Song Ngư</h5>
                     <p>Mar 21 - Apr 19</p>
                   </div>
                 </a>
