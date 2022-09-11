@@ -20,6 +20,7 @@ import SignIn from "./pages/SignIn";
 import Main from "./components/layout/Main";
 import Consutant from "./pages/Consultant";
 import Shop from "./pages/Shop";
+import Zodiac from "./pages/Zodiac";
 import "antd/dist/antd.css";
 import "./assets/styles/main.css";
 import "./assets/styles/responsive.css";
@@ -40,6 +41,7 @@ function App () {
             <Redirect from="*" to="/Dashboard" />
             <Route exact path="/consultant" component={Consutant} />
             <Route exact path="/Shop" component={Shop} />
+            <Route exact path="/zodiac" component={Zodiac} />
           </Main>
         </Switch></BrowserRouter>
 

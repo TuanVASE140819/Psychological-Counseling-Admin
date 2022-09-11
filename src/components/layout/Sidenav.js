@@ -236,11 +236,23 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
 
-
+        <Menu.Item key="5">
+          <NavLink to="/zodiac">
+            <span
+              className="icon"
+              style={{
+                background: page === "zodiac" ? color : "",
+              }}
+            >
+              {tables}
+            </span>
+            <span className="label">Chiêm tinh học</span>
+          </NavLink>
+        </Menu.Item>
 
         
 
-         <Menu.Item key="̀">
+         <Menu.Item key="6">
           <NavLink to="/shop">
             <span
               className="icon"
