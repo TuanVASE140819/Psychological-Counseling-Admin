@@ -1,6 +1,6 @@
 import React from "react";
 
-function Shop() {
+function Zodiac() {
   return (
     <div>
       <section className="as_horoscope_wrapper as_padderBottom80 as_padderTop80">
@@ -194,4 +194,4 @@ function Shop() {
   );
 }
 
-export default Shop;
+export default Zodiac;
