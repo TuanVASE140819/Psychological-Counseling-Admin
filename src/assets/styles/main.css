@@ -3097,6 +3097,10 @@ section.ant-layout.ant-layout-has-sider.layout-Dashboard.layout-profile .header-
 }
 
 
+
+
+
+/*  */
 .input-box-search {
   border-radius: 2px;
   display: flex;
@@ -3107,13 +3111,14 @@ section.ant-layout.ant-layout-has-sider.layout-Dashboard.layout-profile .header-
 }
 
 .btn-primary{
-
+  margin: 0 20px;
   border-radius: 5px;
 }
 
 .table {
   background-color: #fff;
   border-radius: 2px;
+  box-shadow: #e9e6ec 0px 0px 5px 5px;
 }
 
 
@@ -3127,6 +3132,7 @@ section.ant-layout.ant-layout-has-sider.layout-Dashboard.layout-profile .header-
   float: right;
   margin-right: 6.4% ;
   margin-bottom: 1% ;
+  font-weight: 600;
 }
 .btn-createNew:hover {
   background-color: #7d65e9;
