@@ -19,15 +19,13 @@ export default function Consultant() {
     setOpen(false);
   };
 
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
   };
 
   axios({
     method: "GET",
-    url: "https://reqres.in/api/users?page=2",
+    url: "https://www.psychologicalcounselingv1.somee.com/api/Consultants/Getallconsultant",
     data: null,
   })
     .then((res) => {
@@ -39,14 +37,18 @@ export default function Consultant() {
 
   return (
     <div>
-      <FormDialog open={open}/>
-
+     <FormDialog
+        open={open}
+        onSubmit={handleSubmit}
+        handleClose={handleClose}
+      />
       <form onSubmit={handleSubmit}>
         <input type="text" onChange={(e) => setSearch(e.target.value)} />
         <button className="btn btn-primary">Search</button>
-
-        <grid> 
-        <button  color="primary" onClick={handleClickOpen}></button>
+        <grid>
+          <button className="btn-createNew" onClick={handleClickOpen}>
+            Create New
+          </button>
         </grid>
       </form>
 
@@ -58,6 +60,8 @@ export default function Consultant() {
           <th>Địa Chỉ</th>
           <th>Số điện thoại</th>
           <th>Trạng Thái</th>
+          <th></th>
+          <th></th>
         </thead>
 
         {consultant &&

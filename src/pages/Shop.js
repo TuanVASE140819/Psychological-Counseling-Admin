@@ -1,19 +1,19 @@
-import { Table } from "antd";
+import { Grid, Table } from "antd";
 import React, { Component } from "react";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import FormDialog from "../components/dialog";
 
-export default function Shop() {
+export default function Consultant() {
   const [search, setSearch] = useState("");
-  const [shop, setShop] = useState("");
- 
- 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
-
-
+  const [consultant, setConsultant] = useState("");
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    address: "",
+    phone: "",
+  });
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -24,31 +24,60 @@ export default function Shop() {
     setOpen(false);
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
 
+  const onChange = (e) => {
+    const { id, value } = e.target;
+    // console.log(id, value);
+    setFormData({ ...formData, [id]: value });
+  };
 
+  const url = `http://localhost:4000/users`
+  const handleFromSubmit = () => {
+    fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+  };
+
+  
 
   axios({
     method: "GET",
-    url: "https://reqres.in/api/users?page=2",
+    url: "https://reqres.in/api/users?page=1",
     data: null,
   })
     .then((res) => {
-      setShop(res.data.data);
+      setConsultant(res.data.data);
     })
     .catch((err) => {
       console.log(err);
     });
 
-
-
-    
-
   return (
-    <div className="btn-search">
-      <form className="input-box-se" onSubmit={handleSubmit}>
-        <input type=" text" onChange={(e) => setSearch(e.target.value)} />
+    <div>
+      <FormDialog
+        open={open}
+        onSubmit={handleSubmit}
+        handleClose={handleClose}
+        data={formData}
+        onChange={onChange}
+        handleFromSubmit={handleSubmit}
+      />
+      <form onSubmit={handleSubmit}>
+        <input type="text" onChange={(e) => setSearch(e.target.value)} />
         <button className="btn-primary">Search</button>
-        <button className="btn-createNew" color="primary" onClick={handleClickOpen}>Create New</button>
+
+        <grid>
+          <button className="btn-createNew" onClick={handleClickOpen}>
+            Create New
+          </button>
+        </grid>
       </form>
 
       <table className="table">
@@ -56,13 +85,15 @@ export default function Shop() {
           <th>Stt</th>
           <th>Tên sản phẩm</th>
           <th>Mã sản phẩm</th>
-          <th>hình ảnh</th>
-          <th>số lượng</th>
+          <th>Hình ảnh</th>
+          <th>Số lượng</th>
           <th>Danh mục</th>
+          <th></th>
+          <th></th>
         </thead>
 
-        {shop &&
-          shop.map((item, index) => {
+        {consultant &&
+          consultant.map((item, index) => {
             return (
               <tbody key={index}>
                 <td>{item.id}</td>
@@ -87,46 +118,6 @@ export default function Shop() {
             );
           })}
       </table>
-
-      <div
-        className="modal fade"
-        id="exampleModal"
-        tabIndex={-1}
-        role="dialog"
-        aria-labelledby="exampleModalLabel"
-        aria-hidden="true"
-      >
-        <div className="modal-dialog" role="document">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h5 className="modal-title" id="exampleModalLabel">
-                Modal title
-              </h5>
-              <button
-                type="button"
-                className="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">×</span>
-              </button>
-            </div>
-            <div className="modal-body">...</div>
-            <div className="modal-footer">
-              <button
-                type="button"
-                className="btn btn-secondary"
-                data-dismiss="modal"
-              >
-                Close
-              </button>
-              <button type="button" className="btn btn-primary">
-                Save changes
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
