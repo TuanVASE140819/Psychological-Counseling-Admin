@@ -23,21 +23,22 @@ export default function Consultant() {
     e.preventDefault();
   };
 
-  axios({
-    method: "GET",
-    url: "https://www.psychologicalcounselingv1.somee.com/api/Consultants/Getallconsultant",
-    data: null,
-  })
-    .then((res) => {
-      setConsultant(res.data.data);
-    })
-    .catch((err) => {
-      console.log(err);
-    });
+  React.useEffect(() => {
+    axios
+      .get(
+        `https://www.psychologicalcounselingv1.somee.com/api/Consultants/Getallconsultant`
+      ).then((res) => {
+        setConsultant(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+      
+  }, []);
 
   return (
     <div>
-     <FormDialog
+      <FormDialog
         open={open}
         onSubmit={handleSubmit}
         handleClose={handleClose}
