@@ -6,8 +6,6 @@ import axios from "axios";
 import FormDialog from "../components/dialog";
 
 export default function Consultant() {
-
-  const initialValue={}
   const [search, setSearch] = useState("");
   const [consultant, setConsultant] = useState("");
   const [formData, setFormData] = useState({

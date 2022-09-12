@@ -8,7 +8,6 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
 export default function FormDialog({ open, handleClose, data, onChange, handleFromSubmit }) {
-  const { name, email, address, phone } = data;
 
   return (
     <div>
@@ -17,7 +16,6 @@ export default function FormDialog({ open, handleClose, data, onChange, handleFr
         <DialogContent>
           <form>
             <TextField
-              value={name}
               onChange={e => onChange(e)}
               id="name"
               placeholder="Họ và tên"
@@ -27,7 +25,6 @@ export default function FormDialog({ open, handleClose, data, onChange, handleFr
               margin="dense"
             />
             <TextField
-              value={email}
               onChange={e => onChange(e)}
               id="email"
               placeholder="Email"
@@ -37,7 +34,6 @@ export default function FormDialog({ open, handleClose, data, onChange, handleFr
               margin="dense"
             />
             <TextField
-              value={address}
               onChange={e => onChange(e)}
               id="address"
               placeholder="Địa chỉ"
@@ -47,7 +43,6 @@ export default function FormDialog({ open, handleClose, data, onChange, handleFr
               margin="dense"
             />
             <TextField
-              value={phone}
               onChange={e => onChange(e)}
               id="phone"
               placeholder="Số điện thoại"
@@ -62,7 +57,7 @@ export default function FormDialog({ open, handleClose, data, onChange, handleFr
           <Button onClick={handleClose} color="secondary" variant="outlined">
             Cancel
           </Button>
-          <Button color="primary" variant="outlined" autoFocus onClick={()=>console.log(data)}>
+          <Button color="primary" variant="outlined" autoFocus   onClick={()=>handleFromSubmit}>
             Summit
           </Button>
         </DialogActions>

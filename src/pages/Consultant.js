@@ -25,7 +25,7 @@ export default function Consultant() {
 
   axios({
     method: "GET",
-    url: "https://reqres.in/api/users?page=2",
+    url: "https://www.psychologicalcounselingv1.somee.com/api/Consultants/Getallconsultant",
     data: null,
   })
     .then((res) => {
