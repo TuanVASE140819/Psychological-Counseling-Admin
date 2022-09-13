@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import FormDialog from "../components/dialog";
 
-export default function Consultant() {
+export default function Consultant () {
   const [search, setSearch] = useState("");
   const [consultant, setConsultant] = useState("");
 
@@ -33,7 +33,7 @@ export default function Consultant() {
       .catch((err) => {
         console.log(err);
       });
-      
+
   }, []);
 
   return (

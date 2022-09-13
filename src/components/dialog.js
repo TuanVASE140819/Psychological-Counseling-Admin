@@ -7,7 +7,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 
-export default function FormDialog({ open, handleClose, data, onChange, handleFromSubmit }) {
+export default function FormDialog ({ open, handleClose, data, onChange, handleFromSubmit }) {
 
   return (
     <div>
@@ -57,7 +57,7 @@ export default function FormDialog({ open, handleClose, data, onChange, handleFr
           <Button onClick={handleClose} color="secondary" variant="outlined">
             Cancel
           </Button>
-          <Button color="primary" variant="outlined" autoFocus   onClick={()=>handleFromSubmit}>
+          <Button color="primary" variant="outlined" autoFocus onClick={() => handleFromSubmit}>
             Summit
           </Button>
         </DialogActions>

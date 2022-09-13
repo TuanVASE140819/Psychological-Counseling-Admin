@@ -1,6 +1,19 @@
-import React from "react";
+import axios from "axios";
 
-function Zodiac() {
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { QuanLyZodiacAction } from "../redux/action/QuanLyZodiacAction";
+
+
+function Zodiac () {
+  const { arrZodiac } = useSelector(rootReducer => rootReducer.QuanLyZodiac);
+  const dispatch = useDispatch();
+  const [cung, setCung] = useState([]);
+  useEffect(async () => {
+    const action = QuanLyZodiacAction();
+    dispatch(action);
+  }, []);
+  console.log(arrZodiac);
   return (
     <div>
       <section className="as_horoscope_wrapper as_padderBottom80 as_padderTop80">
@@ -31,162 +44,23 @@ function Zodiac() {
                 when looking at its layout. The point of using Lorem Ipsum .
               </p>
             </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh1.svg?alt=media&token=0eefc484-fd9c-4960-8f84-e250d47a83ed" alt />
-                  </span>
-                  <div>
-                    <h5>Aries</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
+            {arrZodiac.map((item, index) => {
+              return <div className="col-lg-2 col-sm-4 col-xs-6" key={index}>
+                <div className="as_sign_box text-centerr">
+                  <a href="service_single.html">
+                    <span className="as_sign">
+                      <img src="https://picsum.photos/200" alt />
+                    </span>
+                    <div>
+                      <h5>{item.name}</h5>
+                      <p>{item.datestart}</p>
+                    </div>
+                  </a>
+                </div>
               </div>
-            </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh2.svg?alt=media&token=66939bb6-ad7e-4e32-8643-12104cdea364" alt />
-                  </span>
-                  <div>
-                    <h5>Taurus</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh3.svg?alt=media&token=dc84012e-76d1-4fa8-b650-6145525df2dd" alt />
-                  </span>
-                  <div>
-                    <h5>Gemini</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh4.svg?alt=media&token=3bc262f7-275f-44be-8106-b2b49869bad4" alt />
-                  </span>
-                  <div>
-                    <h5>Cancer</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh5.svg?alt=media&token=88182494-cfa9-4995-a8fc-78b42fd49891" alt />
-                  </span>
-                  <div>
-                    <h5>Leo</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh6.svg?alt=media&token=6070a619-c60a-44b7-a588-dc218c800cad" alt />
-                  </span>
-                  <div>
-                    <h5>Virgo</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh7.svg?alt=media&token=7c5b93f6-b977-4a60-b2ba-6ce2f1f416dc" alt />
-                  </span>
-                  <div>
-                    <h5>Libra</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh8.svg?alt=media&token=2b076948-93c6-48ea-9f31-004e36be5971" alt />
-                  </span>
-                  <div>
-                    <h5>Scorpio</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh9.svg?alt=media&token=0eb0ffe4-ec4a-4936-aa6b-37b5367faede" alt />
-                  </span>
-                  <div>
-                    <h5>Sagittairus</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh10.svg?alt=media&token=12ec1cac-4bcf-4803-84fc-fd679039e759" alt />
-                  </span>
-                  <div>
-                    <h5>Capricorn</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh11.svg?alt=media&token=24daedbb-378b-4252-a998-42bf84001427" alt />
-                  </span>
-                  <div>
-                    <h5>Aquarius</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
-              </div>
-            </div>
-            <div className="col-lg-2 col-sm-4 col-xs-6">
-              <div className="as_sign_box text-centerr">
-                <a href="service_single.html">
-                  <span className="as_sign">
-                    <img src="https://firebasestorage.googleapis.com/v0/b/traveltogether-54339.appspot.com/o/Image%2Fh12.svg?alt=media&token=14096dd8-98a7-434b-aa11-7281e84ef6fb" alt />
-                  </span>
-                  <div>
-                    <h5>Pisces</h5>
-                    <p>Mar 21 - Apr 19</p>
-                  </div>
-                </a>
-              </div>
-            </div>
+            })}
+
+
           </div>
         </div>
       </section>
