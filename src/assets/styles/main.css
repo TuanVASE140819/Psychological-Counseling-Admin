@@ -3139,3 +3139,135 @@ section.ant-layout.ant-layout-has-sider.layout-Dashboard.layout-profile .header-
   color: #141414;
  
 }
+/* horoscope_wrapper */
+.as_horoscope_wrapper {
+  background-image: url("http://via.placeholder.com/1920X1080/f6fbff/f2f2f2");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.as_padderBottom80 {
+  padding-bottom: 50px;
+}
+
+.as_padderTop80 {
+  padding-top: 50px;
+}
+
+.as_padderBottom80 {
+  padding-bottom: 80px;
+}
+
+.as_padderTop80 {
+  padding-top: 80px;
+}
+
+.as_sign_box {
+  margin: 40;
+  margin: 30px auto 0 !important;
+}
+
+.as_sign_box {
+  background-color: #ffffff;
+  /* max-width: 170px; */
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  /* box-shadow: -2px 0px 28px 0px rgb(0 0 0 / 5%); */
+  border: 1px solid rgb(231, 231, 231);
+  margin-top: 30px;
+  transition: all 0.3s linear;
+}
+
+.as_sign_box .as_sign {
+  background-color: #ffffff;
+  box-shadow: -2px 0px 15px 0px rgba(0, 0, 0, 0.06);
+  height: 56px;
+  width: 56px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 14px;
+  border-radius: 100%;
+  transition: all 0.3s linear;
+}
+
+.as_sign_box:hover .as_sign img {
+  transform: rotate(360deg);
+}
+
+.as_sign_box h5 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-color1);
+  margin: 0 0 2px;
+  transition: none;
+  transition: all 0.3s linear;
+}
+
+.as_sign_box p {
+  margin: 0;
+  font-size: 14px;
+  line-height: 24px;
+  transition: none;
+}
+
+.as_sign_box:hover h5,
+.as_sign_box:hover p {
+  color: #ffffff;
+}
+.as_sign_box:hover {
+  background-image: -moz-linear-gradient(
+    0deg,
+    rgb(244, 170, 54) 0%,
+    rgb(243, 115, 53) 100%
+  );
+  background-image: -webkit-linear-gradient(
+    0deg,
+    rgb(244, 170, 54) 0%,
+    rgb(243, 115, 53) 100%
+  );
+  background-image: -ms-linear-gradient(
+    0deg,
+    rgb(244, 170, 54) 0%,
+    rgb(243, 115, 53) 100%
+  );
+  border-color: rgb(231, 231, 231);
+}
+
+.as_zodiac_sidebar .as_sign_box {
+  margin-bottom: 20px;
+}
+
+.as_sign_box {
+  margin: 40;
+  margin: 30px auto 0 !important;
+}
+
+.as_sign_box {
+  padding: 15px;
+}
+
+.col-sm-4 {
+  flex: 0 0 auto;
+  width: 33.33333333%;
+}
+
+.row_as_wrapper {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(var(--bs-gutter-y) * -1);
+  margin-right: calc(var(--bs-gutter-x) * -0.5);
+  margin-left: calc(var(--bs-gutter-x) * -0.5);
+  max-width: 100%;
+  background-color: #f2f2f2;
+}
+
+.as_sign_box:hover {
+  background-image: linear-gradient(to bottom, #cebfeb, #b9a1f4, #977df3, #6d57c4, #7760f4);
+/* background-color: #f37335 ; */
+}
