@@ -9,6 +9,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 
 export default function FormDialog({ open, handleClose, data, onChange, handleFromSubmit }) {
 
+const { name, email, phone, address } = data;
+
   return (
     <div>
       <Dialog open={open} onClose={handleClose}>
@@ -23,6 +25,7 @@ export default function FormDialog({ open, handleClose, data, onChange, handleFr
               label="Họ Và Tên"
               variant="outlined"
               margin="dense"
+              value={name}
             />
             <TextField
               onChange={e => onChange(e)}
@@ -32,6 +35,7 @@ export default function FormDialog({ open, handleClose, data, onChange, handleFr
               label="Email"
               variant="outlined"
               margin="dense"
+              value={email}
             />
             <TextField
               onChange={e => onChange(e)}
@@ -41,6 +45,7 @@ export default function FormDialog({ open, handleClose, data, onChange, handleFr
               label="Địa chỉ"
               variant="outlined"
               margin="dense"
+              value={address}
             />
             <TextField
               onChange={e => onChange(e)}
@@ -50,6 +55,7 @@ export default function FormDialog({ open, handleClose, data, onChange, handleFr
               label="Số điện thoại"
               variant="outlined"
               margin="dense"
+              value={phone}
             />
           </form>
         </DialogContent>
@@ -57,7 +63,7 @@ export default function FormDialog({ open, handleClose, data, onChange, handleFr
           <Button onClick={handleClose} color="secondary" variant="outlined">
             Cancel
           </Button>
-          <Button color="primary" variant="outlined" autoFocus   onClick={()=>handleFromSubmit}>
+          <Button color="primary" variant="outlined" autoFocus onClick={()=>handleFromSubmit}>
             Summit
           </Button>
         </DialogActions>

@@ -8,7 +8,12 @@ import FormDialog from "../components/dialog";
 export default function Consultant() {
   const [search, setSearch] = useState("");
   const [consultant, setConsultant] = useState("");
-
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    address: "",
+  });
   const [open, setOpen] = React.useState(false);
 
   const handleClickOpen = () => {
@@ -19,29 +24,75 @@ export default function Consultant() {
     setOpen(false);
   };
 
+  const onChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
+  };
+
+  const handleFromSubmit = async () => {
+    // store the states in the form data
+    const loginFormData = new FormData();
+    loginFormData.append("name", formData.name);
+    loginFormData.append("email", formData.email);
+    loginFormData.append("phone", formData.phone);
+    loginFormData.append("address", formData.address);
+    try {
+      // make axios post request
+      // const response = await axios({
+      //   method: "post",
+      //   url: "https://www.psychologicalcounselingv1.somee.com/api/Consultants/create",
+      //   data: loginFormData,
+      //   headers: { "Content-Type": "multipart/form-data" },
+
+      // }).then((res) => {
+      //   handleClose();
+      // });
+
+      //
+      axios
+        .post(
+          `https://www.psychologicalcounselingv1.somee.com/api/Consultants/create`,
+          loginFormData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        )
+        .then((res) => {
+          handleClose();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   React.useEffect(() => {
     axios
       .get(
         `https://www.psychologicalcounselingv1.somee.com/api/Consultants/Getallconsultant`
-      ).then((res) => {
+      )
+      .then((res) => {
         setConsultant(res.data.data);
       })
       .catch((err) => {
         console.log(err);
       });
-      
   }, []);
 
   return (
     <div>
       <FormDialog
         open={open}
-        onSubmit={handleSubmit}
+        handleFromSubmit={handleFromSubmit}
         handleClose={handleClose}
+        data={formData}
+        onChange={onChange}
       />
       <form onSubmit={handleSubmit}>
         <input type="text" onChange={(e) => setSearch(e.target.value)} />
