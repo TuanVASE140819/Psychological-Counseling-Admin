@@ -14,8 +14,8 @@
 import { Menu, Button } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
-
-function Sidenav({ color }) {
+import './menu.css';
+function Sidenav ({ color }) {
   const { pathname } = useLocation();
   const page = pathname.replace("/", "");
 
@@ -236,17 +236,34 @@ function Sidenav({ color }) {
         </Menu.Item>
 
         <Menu.Item key="5">
-          <NavLink to="/zodiac">
-            <span
-              className="icon"
-              style={{
-                background: page === "zodiac" ? color : "",
-              }}
-            >
-              {tables}
-            </span>
-            <span className="label">Chiêm tinh học</span>
-          </NavLink>
+          <Menu mode="horizontal">
+            <NavLink to='/zodiac'  >
+              <span
+                className="icon"
+                style={{
+                  background: page === "zodiac" ? color : "",
+                }}
+              >
+                {tables}
+              </span>
+              <div style={{ marginRight: '-20px' }}>
+                <Menu.SubMenu title="Chiêm tinh học" className="label" style={{ marginRight: '-20px' }}>
+                  <Menu.Item key="one">
+                    <NavLink to='/zodiac'>
+                      Cung Hoàng Đạo
+                    </NavLink>
+                  </Menu.Item>
+                  <Menu.Item key="two" >
+                    Nhà
+                  </Menu.Item>
+                  <Menu.Item key="three" >
+                    Hành Tinh
+                  </Menu.Item>
+                </Menu.SubMenu>
+              </div>
+            </NavLink>
+
+          </Menu>
         </Menu.Item>
 
         <Menu.Item key="6">
