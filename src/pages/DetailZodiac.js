@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { DetailZodiacAction, LayDanhSachHousesAction } from '../redux/action/QuanLyZodiacAction';
 import { RadioChangeEvent } from 'antd';
 import { Radio, Space, Tabs } from 'antd';
-import { HiPencil } from "@react-icons/all-files/fa/HiPencil"
+import { HiPencil } from  'react-icons/hi';
 import moment from 'moment';
 
 export default function DetailZodiac (props) {
@@ -29,7 +29,9 @@ export default function DetailZodiac (props) {
                             <h3>{chiTietZodiac.name}</h3>
                             <p>({moment(chiTietZodiac.dateStart).format('DD/MM')}) - ({moment(chiTietZodiac.dateEnd).format('DD/MM')})</p>
                             <div className='d-flex justify-content-center mt-5'>
-                                <img src='https://picsum.photos/200/200' />
+                                <img src={chiTietZodiac.imageUrl} className='rounded mx-100 d-block'
+                                style={{height: '300px', width: '300px', paddingBottom: '50px'}}
+                                />
                             </div>
 
                         </div>
@@ -39,36 +41,39 @@ export default function DetailZodiac (props) {
                         <div>
                             <h6 className='mt-5'>Chòm Sao {chiTietZodiac.name}</h6>
                             <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
-                            <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
-                            <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
-                            <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
-                            <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
-
+                            <p className='mt-3'><span className='font-weight-bold'>Thể Thức: </span>{chiTietZodiac.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Nguyên Tố : </span>{chiTietZodiac.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Hành Tinh : </span>{chiTietZodiac.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Cung Địa Bàn : </span>{chiTietZodiac.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Tuyên Ngôn : </span>{chiTietZodiac.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Nội Dung: </span>{chiTietZodiac.name}</p>
                         </div>
                     </div>
                 </div>
 
             </div>
             <Tabs defaultActiveKey="1" centered>
-                <Tabs.TabPane tab="Detail Zodiac" key="1" className='bg-white'>
+                <Tabs.TabPane tab="Chi Tiết" key="1" className='bg-white'>
                     <div className='' style={{ paddingLeft: '50px' }}>
                         <h6 className='mt-5'>Chòm Sao {chiTietZodiac.name}</h6>
                         <div><HiPencil /></div>
                         <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
-                        <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
-                        <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
-                        <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
-                        <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Thể Thức: </span>{chiTietZodiac.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Nguyên Tố : </span>{chiTietZodiac.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Hành Tinh : </span>{chiTietZodiac.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Cung Địa Bàn : </span>{chiTietZodiac.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Tuyên Ngôn : </span>{chiTietZodiac.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Nội Dung: </span>{chiTietZodiac.name}</p>
 
                     </div>
                 </Tabs.TabPane>
-                <Tabs.TabPane tab="Zodiac & Hourse" key="2" className='bg-white' >
+                <Tabs.TabPane tab="Cung & Nhà" key="2" className='bg-white' >
                     <div className='p-5'>
                         <button className='btn btn-primary mb-5'>Thêm Dữ Liệu</button>
                         <div className='container' style={{ display: 'grid', gridTemplateColumns: 'auto auto auto auto', gap: '10px' }}>
 
                             {arrHouses.map((item, index) => {
-                                return <button className='btn btn-primary' key={index}>{item.number}</button>
+                                return <button className='btn btn-primary' key={index}>Nhà {item.number}</button>
                             })}
                         </div>
                     </div>

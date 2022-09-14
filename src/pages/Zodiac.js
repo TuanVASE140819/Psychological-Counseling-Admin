@@ -47,19 +47,21 @@ function Zodiac () {
             </div>
             {arrZodiac.map((item, index) => {
               return <div className="col-lg-2 col-sm-4 col-xs-6" key={index}>
+                <NavLink to={`zodiacdetail/${item.id}`}>
                 <div className="as_sign_box text-centerr">
                   <a href="service_single.html">
                     <span className="as_sign">
-                      <img src="https://picsum.photos/200" alt />
+                      <img src={item.imageUrl} alt />
                     </span>
                     <div>
                       <h5>{item.name}</h5>
                       <p>{item.datestart}</p>
                     </div>
-                    <NavLink to={`zodiacdetail/${item.id}`}>Detail</NavLink>
                   </a>
                 </div>
+                </NavLink>
               </div>
+
             })}
 
 
