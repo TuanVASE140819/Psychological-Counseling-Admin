@@ -14,12 +14,12 @@ import Zodiac from "./pages/Zodiac";
 import "antd/dist/antd.css";
 import "./assets/styles/main.css";
 import "./assets/styles/responsive.css";
+import { HomeTemplate } from "./templates/HomeTemplate/HomeTemplate";
+import DetailZodiac from "./pages/DetailZodiac";
 
 function App () {
-  
+
   return (
-
-
     <div className="App">
       <BrowserRouter>
         <Switch>
@@ -35,6 +35,7 @@ function App () {
             <Route exact path="/consultant" component={Consutant} />
             <Route exact path="/Shop" component={Shop} />
             <Route exact path="/zodiac" component={Zodiac} />
+            <HomeTemplate exact path="/zodiacdetail/:id" Component={DetailZodiac} />
           </Main>
         </Switch></BrowserRouter>
 
