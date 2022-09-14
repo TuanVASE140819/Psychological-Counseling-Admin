@@ -37,6 +37,20 @@ export const DetailZodiacAction = (id) => {
         }
     }
 }
+export const EditZodiacAction = (id, formValue) => {
+    return async (dispatch) => {
+        try {
+            let result = await axios({
+                url: 'http://www.psychologicalcounselingv1.somee.com/api/Zodiacs/' + id, formValue,
+                method: 'PUT'
+            })
+
+            console.log(result);
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
 export const LayDanhSachHousesAction = () => {
     return async (dispatch) => {
         try {
