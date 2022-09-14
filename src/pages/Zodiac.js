@@ -2,6 +2,7 @@ import axios from "axios";
 
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { QuanLyZodiacAction } from "../redux/action/QuanLyZodiacAction";
 
 
@@ -55,6 +56,7 @@ function Zodiac () {
                       <h5>{item.name}</h5>
                       <p>{item.datestart}</p>
                     </div>
+                    <NavLink to={`zodiacdetail/${item.id}`}>Detail</NavLink>
                   </a>
                 </div>
               </div>

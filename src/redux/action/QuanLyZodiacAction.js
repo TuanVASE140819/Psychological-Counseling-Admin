@@ -18,3 +18,39 @@ export const QuanLyZodiacAction = () => {
         }
     }
 }
+
+
+export const DetailZodiacAction = (id) => {
+    return async (dispatch) => {
+        try {
+            let result = await axios({
+                url: 'http://www.psychologicalcounselingv1.somee.com/api/Zodiacs/' + id,
+                method: 'GET'
+            })
+            const action = {
+                type: 'CHI_TIET_ZODIAC',
+                chiTietZodiac: result.data
+            }
+            dispatch(action)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
+export const LayDanhSachHousesAction = () => {
+    return async (dispatch) => {
+        try {
+            let result = await axios({
+                url: 'https://www.psychologicalcounselingv1.somee.com/api/Houses',
+                method: 'GET'
+            })
+            const action = {
+                type: 'LAY_DANH_SACH_HOUSES',
+                arrHouses: result.data
+            }
+            dispatch(action)
+        } catch (error) {
+            console.log(error);
+        }
+    }
+}
