@@ -254,7 +254,9 @@ function Sidenav ({ color }) {
                     </NavLink>
                   </Menu.Item>
                   <Menu.Item key="two" >
+                    <NavLink to='/house'>
                     Nhà
+                    </NavLink>
                   </Menu.Item>
                   <Menu.Item key="three" >
                   <NavLink to='/plant'>
