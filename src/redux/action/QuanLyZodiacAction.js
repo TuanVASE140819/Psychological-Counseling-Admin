@@ -22,7 +22,8 @@ export const DetailZodiacAction = id => {
   return async dispatch => {
     try {
       let result = await axios({
-        url: 'http://www.psychologicalcounselingv1.somee.com/api/Zodiacs/' + id,
+        url:
+          'https://www.psychologicalcounselingv1.somee.com/api/Zodiacs/' + id,
         method: 'GET'
       })
       const action = {
@@ -39,7 +40,8 @@ export const EditZodiacAction = (id, formValue) => {
   return async dispatch => {
     try {
       let result = await axios({
-        url: 'http://www.psychologicalcounselingv1.somee.com/api/Zodiacs/' + id,
+        url:
+          'https://www.psychologicalcounselingv1.somee.com/api/Zodiacs/' + id,
         formValue,
         method: 'PUT'
       })
