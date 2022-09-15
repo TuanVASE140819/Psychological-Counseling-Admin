@@ -1,5 +1,5 @@
 import Item from 'antd/lib/list/Item';
-import React, { useEffect } from 'react'
+import React, { useEffect,useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { DetailZodiacAction, EditZodiacAction, LayDanhSachHousesAction } from '../redux/action/QuanLyZodiacAction';
 import { RadioChangeEvent, DatePicker } from 'antd';
@@ -8,7 +8,13 @@ import { HiPencil } from 'react-icons/hi';
 import { useFormik } from 'formik'
 import moment from 'moment';
 
+
+import ReactQuill from "react-quill";
+import 'react-quill/dist/quill.snow.css';
+
+
 export default function DetailZodiac (props) {
+    const [show, setShow] = useState(''); // state của text editor
     const dispatch = useDispatch();
     const { chiTietZodiac, arrHouses } = useSelector(rootReducer => rootReducer.QuanLyZodiac);
     // console.log(chiTietZodiac);
@@ -89,17 +95,19 @@ export default function DetailZodiac (props) {
 
 
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
+                                <div class="modal-dialog modal-dialog-centered" role="document" >
+                                    <div class="modal-content" 
+                                    style={{width:'100%',height:'100%'}} 
+                                    >
                                         <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                                            <h5 class="modal-title" id="exampleModalLongTitle">Chỉnh sửa Cung</h5>
                                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
                                         <div class="modal-body">
                                             <form onSubmitCapture={formik.handleSubmit}>
-                                                <div className='row container'>
+                                                <div className='row container-DetailZodiac'>
 
                                                     <div className='col-md-12 col-sm-12 col-12'>
                                                         <div className='form-group'>
@@ -109,7 +117,7 @@ export default function DetailZodiac (props) {
                                                     </div>
                                                     <div className='col-md-6 col-sm-6 col-12'>
                                                         <div className='form-group'>
-                                                            <label >Ngày Tháng Bắt Đầu:</label>
+                                                            <label >Ngày Tháng Bắt Đầu: </label>
                                                             <DatePicker format="YYYY/DD/MM" name='dateStart' onChange={handleChangeDate('dateStart')} value={moment(formik.values.dateStart)} />
                                                         </div>
                                                     </div>
@@ -132,7 +140,35 @@ export default function DetailZodiac (props) {
                                                     <div className='col-md-12 col-sm-6 col-12'>
                                                         <div className='form-group'>
                                                             <label >Mô tả ngắn : </label>
-                                                            <textarea className='form-control' name='description' min={1} rows="5" cols="80" onChange={formik.handleChange} value={formik.values.description} />
+                                                            <ReactQuill className="shadow-sm"
+                            theme="snow"
+                            style={{
+                                height: 200,
+                                marginTop: '1rem',
+                                display: 'flex',
+                                flexDirection: 'column'
+                            }}
+
+                            value={show}
+
+                            modules={{
+                                toolbar: [
+                                    [{ 'header': '1'}, {'header': '2'}, { 'font': [] }], [{size: []}],
+                                    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                                    [{'align': []}],
+                                    [{ 'color': [] }, { 'background': [] }],
+                                    [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+                                    ['link', "video","image", "code-block"],
+                                    ['clean']
+                                ],
+                            }}
+                            formats={[
+                                'header', 'font', 'size',
+                                'bold', 'italic', 'underline', 'strike', 'blockquote', 'color', 'background',
+                                'list', 'bullet', 'indent', 'link', 'video', 'image', "code-block", "align"
+                            ]}
+
+                                                             onChange={formik.handleChange} value={formik.values.description} />
                                                         </div>
                                                     </div>
                                                     <div className='col-md-12 col-sm-6 col-12'>
