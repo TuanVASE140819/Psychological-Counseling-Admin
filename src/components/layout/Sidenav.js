@@ -246,7 +246,7 @@ function Sidenav ({ color }) {
               >
                 {tables}
               </span>
-              <div style={{ marginRight: '-20px' }}>
+              <div>
                 <Menu.SubMenu title="Chiêm tinh học" className="label" style={{ marginRight: '-20px' }}>
                   <Menu.Item key="one">
                     <NavLink to='/zodiac'>
@@ -257,7 +257,9 @@ function Sidenav ({ color }) {
                     Nhà
                   </Menu.Item>
                   <Menu.Item key="three" >
+                  <NavLink to='/plant'>
                     Hành Tinh
+                  </NavLink>
                   </Menu.Item>
                 </Menu.SubMenu>
               </div>
