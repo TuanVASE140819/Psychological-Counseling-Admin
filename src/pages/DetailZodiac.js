@@ -8,6 +8,7 @@ import { HiPencil } from 'react-icons/hi';
 import { useFormik } from 'formik'
 import moment from 'moment';
 
+
 import ReactQuill from "react-quill";
 import 'react-quill/dist/quill.snow.css';
 
@@ -94,9 +95,9 @@ export default function DetailZodiac (props) {
 
 
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-dialog modal-dialog-centered" role="document" >
                                     <div class="modal-content" 
-                                    style={{width:'1000px',height:'1000px'}} 
+                                    style={{width:'100%',height:'100%'}} 
                                     >
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLongTitle">Chỉnh sửa Cung</h5>
@@ -106,7 +107,7 @@ export default function DetailZodiac (props) {
                                         </div>
                                         <div class="modal-body">
                                             <form onSubmitCapture={formik.handleSubmit}>
-                                                <div className='row container'>
+                                                <div className='row container-DetailZodiac'>
 
                                                     <div className='col-md-12 col-sm-12 col-12'>
                                                         <div className='form-group'>
@@ -116,7 +117,7 @@ export default function DetailZodiac (props) {
                                                     </div>
                                                     <div className='col-md-6 col-sm-6 col-12'>
                                                         <div className='form-group'>
-                                                            <label >Ngày Tháng Bắt Đầu:</label>
+                                                            <label >Ngày Tháng Bắt Đầu: </label>
                                                             <DatePicker format="YYYY/DD/MM" name='dateStart' onChange={handleChangeDate('dateStart')} value={moment(formik.values.dateStart)} />
                                                         </div>
                                                     </div>
@@ -142,7 +143,7 @@ export default function DetailZodiac (props) {
                                                             <ReactQuill className="shadow-sm"
                             theme="snow"
                             style={{
-                                height: 300,
+                                height: 200,
                                 marginTop: '1rem',
                                 display: 'flex',
                                 flexDirection: 'column'

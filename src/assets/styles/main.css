@@ -3271,3 +3271,21 @@ section.ant-layout.ant-layout-has-sider.layout-Dashboard.layout-profile .header-
   background-image: linear-gradient(to bottom, #cebfeb, #b9a1f4, #977df3, #6d57c4, #7760f4);
 /* background-color: #f37335 ; */
 }
+
+
+.modal-body, .modal-content, .modal-dialog {
+  margin-top: 5px;
+  width: 1000px;
+  
+}
+
+
+.modal-dialog {
+    max-width: 1000px;
+    max-height: 1000px;
+    margin: 0 auto;
+}
+
+.form-group  label {
+  margin-right: 5px;
+}
