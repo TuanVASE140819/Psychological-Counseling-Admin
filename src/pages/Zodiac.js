@@ -44,7 +44,7 @@ function Zodiac () {
                 when looking at its layout. The point of using Lorem Ipsum .
               </p> */}
             </div>
-            {arrZodiac.map((item, index) => {
+            {arrZodiac?.map((item, index) => {
               return (
                 <div className='col-lg-2 col-sm-4 col-xs-6' key={index}>
                   <NavLink to={`zodiacdetail/${item.id}`}>

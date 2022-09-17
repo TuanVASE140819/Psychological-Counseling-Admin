@@ -1,11 +1,11 @@
 import Item from 'antd/lib/list/Item';
-import React, { useEffect,useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { DetailZodiacAction, EditZodiacAction, LayDanhSachHousesAction } from '../redux/action/QuanLyZodiacAction';
 import { RadioChangeEvent, DatePicker } from 'antd';
 import { Radio, Space, Tabs } from 'antd';
 import { HiPencil } from 'react-icons/hi';
-import { useFormik } from 'formik'
+import { Field, useFormik } from 'formik'
 import moment from 'moment';
 
 
@@ -17,7 +17,7 @@ export default function DetailZodiac (props) {
     const [show, setShow] = useState(''); // state của text editor
     const dispatch = useDispatch();
     const { chiTietZodiac, arrHouses } = useSelector(rootReducer => rootReducer.QuanLyZodiac);
-    // console.log(chiTietZodiac);
+    console.log(chiTietZodiac);
     useEffect(() => {
         const id = props.match.params.id;
 
@@ -27,30 +27,28 @@ export default function DetailZodiac (props) {
         dispatch(action1);
     }, []);
 
-
+    console.log(chiTietZodiac);
     const handleChangeDate = (name) => {
         return (value) => {
             const date = moment(value)
             formik.setFieldValue(name, date)
         }
     }
-    console.log(chiTietZodiac);
     const formik = useFormik({
         enableReinitialize: true,
         initialValues: {
-            id: chiTietZodiac?.id,
-            imageUrl: chiTietZodiac?.imageUrl,
-            name: chiTietZodiac?.name,
-            customerId: chiTietZodiac?.customerId,
-            dateStart: chiTietZodiac?.dateStart,
-            dateEnd: chiTietZodiac?.dateEnd,
-            itemId: chiTietZodiac?.itemId,
-            description: chiTietZodiac?.description,
-            planetId: chiTietZodiac?.planetId
+            id: chiTietZodiac[0]?.id,
+            imageUrl: chiTietZodiac[0]?.imageUrl,
+            name: chiTietZodiac[0]?.name,
+            dateStart: chiTietZodiac[0]?.dateStart,
+            dateEnd: chiTietZodiac[0]?.dateEnd,
+
+            descriptionShort: chiTietZodiac[0]?.descriptionShort,
+            descriptionDetail: chiTietZodiac[0]?.descriptionDetail
         },
         onSubmit: (value) => {
             console.log(value);
-            const action = EditZodiacAction(chiTietZodiac.id, value);
+            const action = EditZodiacAction(value);
             dispatch(action);
         }
     })
@@ -61,10 +59,10 @@ export default function DetailZodiac (props) {
                 <div className='row bg-white'>
                     <div className='col-6 '>
                         <div className='p-2'>
-                            <h3>{chiTietZodiac.name}</h3>
-                            <p>({moment(chiTietZodiac.dateStart).format('DD/MM')}) - ({moment(chiTietZodiac.dateEnd).format('DD/MM')})</p>
+                            <h3>{chiTietZodiac[0]?.name}</h3>
+                            <p>({moment(chiTietZodiac[0]?.dateStart).format('DD/MM')}) - ({moment(chiTietZodiac[0]?.dateEnd).format('DD/MM')})</p>
                             <div className='d-flex justify-content-center mt-5'>
-                                <img src={chiTietZodiac.imageUrl} className='rounded mx-100 d-block'
+                                <img src={chiTietZodiac[0]?.imageUrl} className='rounded mx-100 d-block'
                                     style={{ height: '300px', width: '300px', paddingBottom: '50px' }}
                                 />
                             </div>
@@ -73,14 +71,14 @@ export default function DetailZodiac (props) {
                     </div>
                     <div className='col-6'>
                         <div>
-                            <h6 className='mt-5'>Chòm Sao {chiTietZodiac.name}</h6>
-                            <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
-                            <p className='mt-3'><span className='font-weight-bold'>Thể Thức: </span>{chiTietZodiac.name}</p>
-                            <p className='mt-3'><span className='font-weight-bold'>Nguyên Tố : </span>{chiTietZodiac.name}</p>
-                            <p className='mt-3'><span className='font-weight-bold'>Hành Tinh : </span>{chiTietZodiac.name}</p>
-                            <p className='mt-3'><span className='font-weight-bold'>Cung Địa Bàn : </span>{chiTietZodiac.name}</p>
-                            <p className='mt-3'><span className='font-weight-bold'>Tuyên Ngôn : </span>{chiTietZodiac.name}</p>
-                            <p className='mt-3'><span className='font-weight-bold'>Nội Dung: </span>{chiTietZodiac.name}</p>
+                            <h6 className='mt-5'>Chòm Sao {chiTietZodiac[0]?.name}</h6>
+                            <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac[0]?.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Thể Thức: </span>{chiTietZodiac[0]?.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Nguyên Tố : </span>{chiTietZodiac[0]?.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Hành Tinh : </span>{chiTietZodiac[0]?.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Cung Địa Bàn : </span>{chiTietZodiac[0]?.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Tuyên Ngôn : </span>{chiTietZodiac[0]?.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Nội Dung: </span>{chiTietZodiac[0]?.name}</p>
                         </div>
                     </div>
                 </div>
@@ -96,8 +94,8 @@ export default function DetailZodiac (props) {
 
                             <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                 <div class="modal-dialog modal-dialog-centered" role="document" >
-                                    <div class="modal-content" 
-                                    style={{width:'100%',height:'100%'}} 
+                                    <div class="modal-content"
+                                        style={{ width: '100%', height: '100%' }}
                                     >
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalLongTitle">Chỉnh sửa Cung</h5>
@@ -128,53 +126,47 @@ export default function DetailZodiac (props) {
                                                         </div>
                                                     </div>
 
-                                                    <div className='col-md-12 col-sm-12 col-12'>
-                                                        <div className='form-group'>
-                                                            <label >*Icon Cung Hoàng Đạo</label>
-                                                            <div>
-                                                                <input className='form-control' name='imageUrl' min={1} onChange={formik.handleChange} value={formik.values.imageUrl} />
-                                                                <input type='file' />
-                                                            </div>
-                                                        </div>
-                                                    </div>
+
                                                     <div className='col-md-12 col-sm-6 col-12'>
                                                         <div className='form-group'>
                                                             <label >Mô tả ngắn : </label>
-                                                            <ReactQuill className="shadow-sm"
-                            theme="snow"
-                            style={{
-                                height: 200,
-                                marginTop: '1rem',
-                                display: 'flex',
-                                flexDirection: 'column'
-                            }}
+                                                            {/* <ReactQuill className="shadow-sm"
+                                                                theme="snow"
+                                                                style={{
+                                                                    height: 200,
+                                                                    marginTop: '1rem',
+                                                                    display: 'flex',
+                                                                    flexDirection: 'column'
+                                                                }}
 
-                            value={show}
+                                                                value={show}
 
-                            modules={{
-                                toolbar: [
-                                    [{ 'header': '1'}, {'header': '2'}, { 'font': [] }], [{size: []}],
-                                    ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-                                    [{'align': []}],
-                                    [{ 'color': [] }, { 'background': [] }],
-                                    [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-                                    ['link', "video","image", "code-block"],
-                                    ['clean']
-                                ],
-                            }}
-                            formats={[
-                                'header', 'font', 'size',
-                                'bold', 'italic', 'underline', 'strike', 'blockquote', 'color', 'background',
-                                'list', 'bullet', 'indent', 'link', 'video', 'image', "code-block", "align"
-                            ]}
-
-                                                             onChange={formik.handleChange} value={formik.values.description} />
+                                                                modules={{
+                                                                    toolbar: [
+                                                                        [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }], [{ size: [] }],
+                                                                        ['bold', 'italic', 'underline', 'strike', 'blockquote'],
+                                                                        [{ 'align': [] }],
+                                                                        [{ 'color': [] }, { 'background': [] }],
+                                                                        [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
+                                                                        ['link', "video", "image", "code-block"],
+                                                                        ['clean']
+                                                                    ],
+                                                                }}
+                                                                formats={[
+                                                                    'header', 'font', 'size',
+                                                                    'bold', 'italic', 'underline', 'strike', 'blockquote', 'color', 'background',
+                                                                    'list', 'bullet', 'indent', 'link', 'video', 'image', "code-block", "align"
+                                                                ]}
+                                                                name='descriptionShort' onChange={formik.handleChange}
+                                                            /> */}
+                                                            <textarea className='form-control' name='descriptionShort' onChange={formik.handleChange} rows="5" cols="80" value={formik.values.descriptionShort} />
                                                         </div>
                                                     </div>
                                                     <div className='col-md-12 col-sm-6 col-12'>
                                                         <div className='form-group'>
                                                             <label >Nội Dung Chính : </label>
-                                                            <textarea className='form-control' name='planetId' rows="5" cols="80" onChange={formik.handleChange} value={formik.values.planetId} />
+                                                            <textarea className='form-control' name='descriptionDetail' rows="5" cols="80" onChange={formik.handleChange} value={formik.values.descriptionDetail} />
+                                                            {/* <Field name="descriptionDetail" as="textarea" className="form-textarea" /> */}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -194,13 +186,13 @@ export default function DetailZodiac (props) {
                                 </div>
                             </div>
                         </div>
-                        <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac.name}</p>
-                        <p className='mt-3'><span className='font-weight-bold'>Thể Thức: </span>{chiTietZodiac.name}</p>
-                        <p className='mt-3'><span className='font-weight-bold'>Nguyên Tố : </span>{chiTietZodiac.name}</p>
-                        <p className='mt-3'><span className='font-weight-bold'>Hành Tinh : </span>{chiTietZodiac.name}</p>
-                        <p className='mt-3'><span className='font-weight-bold'>Cung Địa Bàn : </span>{chiTietZodiac.name}</p>
-                        <p className='mt-3'><span className='font-weight-bold'>Tuyên Ngôn : </span>{chiTietZodiac.name}</p>
-                        <p className='mt-3'><span className='font-weight-bold'>Nội Dung: </span>{chiTietZodiac.name}</p>
+                        <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac[0]?.name}</p>
+                        <p className='mt-3'><span className='font-weight-bold'>Thể Thức: </span>{chiTietZodiac[0]?.name}</p>
+                        <p className='mt-3'><span className='font-weight-bold'>Nguyên Tố : </span>{chiTietZodiac[0]?.name}</p>
+                        <p className='mt-3'><span className='font-weight-bold'>Hành Tinh : </span>{chiTietZodiac[0]?.name}</p>
+                        <p className='mt-3'><span className='font-weight-bold'>Cung Địa Bàn : </span>{chiTietZodiac[0]?.name}</p>
+                        <p className='mt-3'><span className='font-weight-bold'>Tuyên Ngôn : </span>{chiTietZodiac[0]?.name}</p>
+                        <p className='mt-3'><span className='font-weight-bold'>Nội Dung: </span>{chiTietZodiac[0]?.name}</p>
 
                     </div>
                 </Tabs.TabPane >
