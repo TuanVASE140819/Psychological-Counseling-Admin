@@ -78,7 +78,7 @@ export default function DetailZodiac (props) {
                             <p className='mt-3'><span className='font-weight-bold'>Hành Tinh : </span>{chiTietZodiac[0]?.name}</p>
                             <p className='mt-3'><span className='font-weight-bold'>Cung Địa Bàn : </span>{chiTietZodiac[0]?.name}</p>
                             <p className='mt-3'><span className='font-weight-bold'>Tuyên Ngôn : </span>{chiTietZodiac[0]?.name}</p>
-                            <p className='mt-3'><span className='font-weight-bold'>Nội Dung: </span>{chiTietZodiac[0]?.name}</p>
+                            <p className='mt-3'><span className='font-weight-bold'>Nội Dung Ngắn: </span>{chiTietZodiac[0]?.descriptionShort}</p>
                         </div>
                     </div>
                 </div>
@@ -88,7 +88,7 @@ export default function DetailZodiac (props) {
                 <Tabs.TabPane tab="Chi Tiết" key="1" className='bg-white'>
                     <div className='' style={{ paddingLeft: '50px' }}>
                         <div style={{ marginTop: '30px', display: 'flex', justifyContent: 'space-between' }}>
-                            <h6 >Chòm Sao {chiTietZodiac.name}</h6>
+                            <h6 >Chòm Sao {chiTietZodiac[0]?.name}</h6>
                             <div style={{ marginRight: '20px', backgroundColor: 'rgba(0,0,0,0.5)', color: 'white', borderRadius: '7px', padding: '5px 8px' }} data-toggle="modal" data-target="#exampleModalCenter"> <HiPencil /></div>
 
 
@@ -186,14 +186,14 @@ export default function DetailZodiac (props) {
                                 </div>
                             </div>
                         </div>
-                        <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac[0]?.name}</p>
+                        {/* <p className='mt-3'><span className='font-weight-bold'>Biểu Tượng : </span>{chiTietZodiac[0]?.name}</p>
                         <p className='mt-3'><span className='font-weight-bold'>Thể Thức: </span>{chiTietZodiac[0]?.name}</p>
                         <p className='mt-3'><span className='font-weight-bold'>Nguyên Tố : </span>{chiTietZodiac[0]?.name}</p>
                         <p className='mt-3'><span className='font-weight-bold'>Hành Tinh : </span>{chiTietZodiac[0]?.name}</p>
                         <p className='mt-3'><span className='font-weight-bold'>Cung Địa Bàn : </span>{chiTietZodiac[0]?.name}</p>
                         <p className='mt-3'><span className='font-weight-bold'>Tuyên Ngôn : </span>{chiTietZodiac[0]?.name}</p>
-                        <p className='mt-3'><span className='font-weight-bold'>Nội Dung: </span>{chiTietZodiac[0]?.name}</p>
-
+                        <p className='mt-3'><span className='font-weight-bold'>Nội Dung: </span>{chiTietZodiac[0]?.name}</p> */}
+                        <p className='mt-3'><span className='font-weight-bold'>*Nội Dung: </span>{chiTietZodiac[0]?.descriptionDetail}</p> 
                     </div>
                 </Tabs.TabPane >
                 <Tabs.TabPane tab="Cung & Nhà" key="2" className='bg-white' >

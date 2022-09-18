@@ -8,6 +8,7 @@ import { ChiTietConsultantsAction, DeleteConsultantsAction, EditConsultantsActio
 import EditConsultants from "./EditConsultants";
 import { useFormik } from "formik";
 import moment from "moment";
+import {Tag, Radio} from 'antd';
 
 export default function Consultant () {
 
@@ -119,6 +120,7 @@ export default function Consultant () {
       status: chiTietConsultants[0]?.status,
       experience: chiTietConsultants[0]?.experience,
       rating: chiTietConsultants[0]?.rating,
+      skills: chiTietConsultants[0]?.skills,
       feedback: chiTietConsultants[0]?.feedback,
 
     },
@@ -157,6 +159,7 @@ export default function Consultant () {
           <th>Số điện thoại</th> */}
           <th>Xếp Hạng</th>
           <th>Trạng Thái</th>
+          <th>Kỹ Năng</th>
           <th></th>
           <th></th>
         </thead>
@@ -168,15 +171,35 @@ export default function Consultant () {
                 <td>{item.id}</td>
                 <td>{item.fullName}</td>
                 <td>{item.email}</td>
-                {/* <td>{item.address}</td>
-                <td>{item.phone}</td> */}
-                <td>{item.rating}</td>
-                <td>{item.status}</td>
                 <td>
-                  <button className="btn btn-danger" onClick={() => {
-                    const action = DeleteConsultantsAction(item.id);
-                    dispatch(action);
-                  }}>Delete</button>
+                  {
+                    item.rating === 1 ? <Tag color="red">1</Tag> :
+                      item.rating === 2 ? <Tag color="orange">2</Tag> :
+                        item.rating === 3 ? <Tag color="green">3</Tag> :
+                          item.rating === 4 ? <Tag color="cyan">4</Tag> :
+                            item.rating === 5 ? <Tag color="blue">5</Tag> : <Tag color="purple">0</Tag>
+                  }
+
+                </td>
+                <td>
+                  {item.status === "active" ? (
+                    <Tag color="green">Đang hoạt động</Tag>
+                  ) : (
+                    <Tag color="red">Ngừng hoạt động</Tag>
+                  )}
+
+                </td>
+                <td>
+                  {
+                    item.skills === "1" ? <Tag color="green">Bói chén</Tag> :
+                      item.skills === "psychiatrist" ? <Tag color="cyan">Nhà tâm thần</Tag> :
+                        item.skills === "psychologist" ? <Tag color="blue">Nhà tâm lý</Tag> :
+                          item.skills === "psychologist" ? <Tag color="purple">Nhà tâm lý</Tag> :
+                            item.skills === "psychologist" ? <Tag color="red">Nhà tâm lý</Tag> :
+                              item.skills === "psychologist" ? <Tag color="orange">Nhà tâm lý</Tag> : <Tag color="green">Bói chén</Tag>
+
+                  }
+
                 </td>
                 <td>
                   <button
@@ -192,10 +215,48 @@ export default function Consultant () {
 
 
                   >
-                    Edit
-
-
+                    Chi Tiết
                   </button>
+                </td>
+                {/* Kích hoạt trạng thái tk */}
+                <td>
+                   {item.status === "active" ? (
+                    <button
+                      className="btn btn-danger"
+                      onClick={() => {
+                        const action = DeleteConsultantsAction(item.id);
+                        dispatch(action);
+                      }}
+                    >
+                      Ngừng hoạt động
+                    </button>
+                  ) : (
+                    <button
+
+                      className="btn btn-success"
+                      onClick={() => {
+                        const action = DeleteConsultantsAction(item.id);
+                        dispatch(action);
+                      }}
+                    >
+                      Hoạt động
+                    </button>
+                  )}
+                      
+                  {/* <button 
+                    className="btn btn-primary"
+                  onClick={() => {
+                    const action = DeleteConsultantsAction(item.id);
+                    dispatch(action);
+                    
+                  }}>
+                    {
+                      
+                      item.status === "active" ? "Ngừng hoạt động" : "Kích hoạt"
+                    
+                      
+                    }
+                  </button> */}
                 </td>
               </tbody>
             );
@@ -206,7 +267,7 @@ export default function Consultant () {
           <div className="modal-dialog modal-dialog-centered" role="document">
             <div className="modal-content">
               <div className="modal-header">
-                <h5 className="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                <h5 className="modal-title" id="exampleModalLongTitle">Chi Tiết: {chiTietConsultants[0]?.fullName}</h5>
                 <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">×</span>
                 </button>
@@ -242,8 +303,26 @@ export default function Consultant () {
 
                     <div className='col-md-4 col-sm-12 col-12'>
                       <div className='form-group'>
-                        <label ><span>*</span>Giới Tính: </label>
-                        <input className='form-control' placeholder='Gender' name='gender' onChange={formik.handleChange} value={formik.values.gender} />
+                      <label>
+                            <span>*</span>Giới Tính:{' '}
+                        </label>
+                        {/* <select className="form-control" name= ""
+                        >
+                            <option value="Nam">Nam</option>
+                            <option value="Nữ">Nữ</option>
+                            onChange={formik.handleChange}
+                            
+                      
+                        </select> */}
+                         {/* Edit gender */}
+                          <Radio.Group name="
+                          " onChange={formik.handleChange} value={formik.values.gender}>
+                            <Radio value="1">Nam</Radio>
+                            <Radio value="">Nữ</Radio>
+                          </Radio.Group>
+
+
+     
                       </div>
                     </div>
                     <div className='col-md-4 col-sm-12 col-12'>
@@ -261,14 +340,14 @@ export default function Consultant () {
                     <div className='col-md-4 col-sm-12 col-12'>
                       <div className='form-group'>
                         <label ><span>*</span>Kỹ Năng: </label>
-                        <input className='form-control' placeholder='FeedBack' name='feedback' onChange={formik.handleChange} value={formik.values.feedback} />
+                        <input className='form-control' placeholder='' name='feedback' onChange={formik.handleChange} value={formik.values.skills} />
                       </div>
                     </div>
                   </div>
 
                   <div class="modal-footer" style={{ display: 'flex', justifyContent: 'space-between' }}>
                     <div>
-                      <button type="submit" class="btn btn-primary">Edit</button>
+                      <button type="submit" class="btn btn-primary">Sửa</button>
                       {/* <button type="button" class="btn btn-primary">Reset</button> */}
                     </div>
                     <button type="submit" class="btn btn-secondary" data-dismiss="modal">Close</button>

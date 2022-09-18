@@ -8,7 +8,7 @@ export const GetCustomersAction = () => {
       let result = await http.get('/Customers/Getallcustomer')
       const action = {
         type: 'GET_LIST_CUSTOMERS',
-        arrCustomer: result.data.data
+        arrCustomers: result.data.data
       }
       dispatch(action)
     } catch (error) {
@@ -44,7 +44,7 @@ export const EditCustomersAction = id => {
 
       const action = GetCustomersAction()
       dispatch(action)
-      swal('Thành công!', 'You clicked the button!', 'success')
+      swal('Thành công!', ' ', 'success')
     } catch (error) {
       console.log(error)
     }
@@ -58,7 +58,7 @@ export const DeleteCustomersAction = id => {
       const action = GetCustomersAction()
       dispatch(action)
       console.log(result)
-      swal('Thành công!', 'You clicked the button!', 'success')
+      swal('Thành công!', ' ', 'success')
     } catch (error) {
       console.log(error)
     }

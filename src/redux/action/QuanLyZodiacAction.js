@@ -1,13 +1,14 @@
 import axios from 'axios'
 import { http } from '../../services/baseServices'
+import swal from 'sweetalert'
 
 export const QuanLyZodiacAction = () => {
   return async dispatch => {
     try {
-      let result = await http.get('/Zodiacs/Getallzodiacs');
+      let result = await http.get('/Zodiacs/Getallzodiacs')
       const action = {
         type: 'LAY_DANH_SACH_ZODIAC',
-        arrZodiac: result.data.data,
+        arrZodiac: result.data.data
       }
       dispatch(action)
     } catch (error) {
@@ -22,7 +23,7 @@ export const DetailZodiacAction = id => {
       let result = await http.get('/Zodiacs/getbyid?id=' + id)
       const action = {
         type: 'CHI_TIET_ZODIAC',
-        chiTietZodiac: result.data.data,
+        chiTietZodiac: result.data.data
       }
       dispatch(action)
     } catch (error) {
@@ -30,7 +31,7 @@ export const DetailZodiacAction = id => {
     }
   }
 }
-export const EditZodiacAction = (formValue) => {
+export const EditZodiacAction = formValue => {
   return async dispatch => {
     try {
       let result = await axios({
@@ -38,11 +39,12 @@ export const EditZodiacAction = (formValue) => {
           'https://www.psychologicalcounselingv1.somee.com/api/Zodiacs/update',
 
         method: 'PUT',
-        data: formValue,
+        data: formValue
       })
 
-      // const action = QuanLyZodiacAction();
-      // dispatch(action);
+      const action = QuanLyZodiacAction()
+      dispatch(action)
+      swal('Thành công !', ' ', 'success')
     } catch (error) {
       console.log(error)
     }
