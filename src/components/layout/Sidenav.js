@@ -258,7 +258,7 @@ function Sidenav ({ color }) {
                     </NavLink>
                   </Menu.Item>
                   <Menu.Item key="three" >
-                    <NavLink to='/plant'>
+                    <NavLink to='/planet'>
                       Hành Tinh
                     </NavLink>
                   </Menu.Item>

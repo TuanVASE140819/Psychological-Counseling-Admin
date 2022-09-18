@@ -15,7 +15,7 @@ function Zodiac () {
   }, [])
   console.log(arrZodiac)
   return (
-    <div>
+    <div className="container-zodiac">
       <section className='as_horoscope_wrapper as_padderBottom80 as_padderTop80'>
         <div className='container_as_wrapper'>
           <div className='row_as_wrapper'>

@@ -3289,3 +3289,22 @@ section.ant-layout.ant-layout-has-sider.layout-Dashboard.layout-profile .header-
 .form-group  label {
   margin-right: 5px;
 }
+
+
+
+
+
+.ant-table-wrapper {
+  clear: both;
+  max-width: 100%;
+  margin-left: 18px;
+}
+
+
+.container-zodiac
+{
+  margin-left: 18px;
+}
+.row_as_wrapper{
+  margin-left: 0.3px;
+}

@@ -14,6 +14,7 @@ import Customer from './pages/Customer'
 import Shop from './pages/Shop'
 import Zodiac from './pages/Zodiac'
 import House from './pages/House'
+import Planet from './pages/Planet'
 import 'antd/dist/antd.css'
 import './assets/styles/main.css'
 import './assets/styles/responsive.css'
@@ -43,6 +44,9 @@ function App () {
             <Route exact path='/zodiac' component={Zodiac} />
             {/* Route quản lý House */}
             <Route exact path='/house' component={House} />
+            {/* Route quản lý Planet */}
+            <Route exact path='/planet' component={Planet} />
+            
             <HomeTemplate
               exact
               path='/zodiacdetail/:id'
