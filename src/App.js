@@ -20,6 +20,7 @@ import './assets/styles/main.css'
 import './assets/styles/responsive.css'
 import { HomeTemplate } from './templates/HomeTemplate/HomeTemplate'
 import DetailZodiac from './pages/DetailZodiac'
+import CreateConsultant from './pages/CreateConsultant'
 
 function App () {
   return (
@@ -46,7 +47,8 @@ function App () {
             <Route exact path='/house' component={House} />
             {/* Route quản lý Planet */}
             <Route exact path='/planet' component={Planet} />
-            
+            <Route exact path='/createconsultant' component={CreateConsultant} />
+
             <HomeTemplate
               exact
               path='/zodiacdetail/:id'
