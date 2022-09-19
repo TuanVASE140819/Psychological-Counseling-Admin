@@ -1,36 +1,38 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
-import { QuanLyZodiacAction } from '../redux/action/QuanLyZodiacAction'
+import { GetPlanetsAction } from '../redux/action/PlanetsAction'
 
-function Zodiac () {
-  const { arrZodiac } = useSelector(rootReducer => rootReducer.QuanLyZodiac)
+function Planet () {
+  // get data
+  const { arrPlanet } = useSelector(rootReducer => rootReducer.PlanetsReducer)
   const dispatch = useDispatch()
-  const [cung, setCung] = useState([])
+  // const [planet, setPlanet] = useState([])
   useEffect(async () => {
-    const action = QuanLyZodiacAction()
+    const action = GetPlanetsAction()
     dispatch(action)
   }, [])
-  console.log(arrZodiac)
+  console.log(arrPlanet)
   return (
-    <div className="container-zodiac">
+    <div className="container-planet">
       <section className='as_horoscope_wrapper as_padderBottom80 as_padderTop80'>
         <div className='container_as_wrapper'>
           <div className='row_as_wrapper'>
-      
-            {arrZodiac?.map((item, index) => {
+              
+            {arrPlanet?.map((item, index) => {
               return (
                 <div className='col-lg-2 col-sm-4 col-xs-6' key={index}>
-                  <NavLink to={`zodiacdetail/${item.id}`}>
+                  <NavLink to={`planetdetail/${item.id}`}>
                     <div className='as_sign_box text-centerr'>
                       <a href='service_single.html'>
                         <span className='as_sign'>
-                          <img src={item.imageUrl} alt />
+                          <img src={item.description} alt />
                         </span>
                         <div>
                           <h5>
                             {item.name}
                           </h5>
+
                           <p>
                             {item.datestart}
                           </p>
@@ -45,7 +47,6 @@ function Zodiac () {
         </div>
       </section>
     </div>
-  )
+  )           
 }
-
-export default Zodiac
+export default Planet

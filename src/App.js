@@ -7,10 +7,14 @@ import Profile from './pages/Profile'
 import SignUp from './pages/SignUp'
 import SignIn from './pages/SignIn'
 import Main from './components/layout/Main'
+
+// Page quản lý User
 import Consutant from './pages/Consultant'
+import Customer from './pages/Customer'
 import Shop from './pages/Shop'
 import Zodiac from './pages/Zodiac'
 import House from './pages/House'
+import Planet from './pages/Planet'
 import 'antd/dist/antd.css'
 import './assets/styles/main.css'
 import './assets/styles/responsive.css'
@@ -31,10 +35,18 @@ function App () {
             <Route exact path='/rtl' component={Rtl} />
             <Route exact path='/profile' component={Profile} />
             <Redirect from='*' to='/Dashboard' />
+            {/* Route quản lý User */}
             <Route exact path='/consultant' component={Consutant} />
+            <Route exact path='/customer' component={Customer} />
+            {/* Route quản lý Shop */}
             <Route exact path='/Shop' component={Shop} />
+            {/* Route quản lý Zodiac */}
             <Route exact path='/zodiac' component={Zodiac} />
+            {/* Route quản lý House */}
             <Route exact path='/house' component={House} />
+            {/* Route quản lý Planet */}
+            <Route exact path='/planet' component={Planet} />
+            
             <HomeTemplate
               exact
               path='/zodiacdetail/:id'
