@@ -1,75 +1,52 @@
-import React from 'react'
-import moment from "moment";
-import {
-  ChiTietPlanetsAction,
-  DeletePlanetsAction,
-  EditPlanetsAction,
-  GetPlanetsAction,
-} from "../redux/action/PlanetsAction";
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { NavLink } from 'react-router-dom'
+import { GetPlanetsAction } from '../redux/action/PlanetsAction'
 
-function planet() {
+function Planet () {
+  // get data
+  const { arrPlanet } = useSelector(rootReducer => rootReducer.PlanetsReducer)
+  const dispatch = useDispatch()
+  // const [planet, setPlanet] = useState([])
+  useEffect(async () => {
+    const action = GetPlanetsAction()
+    dispatch(action)
+  }, [])
+  console.log(arrPlanet)
   return (
-    <div>
+    <div className="container-planet">
+      <section className='as_horoscope_wrapper as_padderBottom80 as_padderTop80'>
+        <div className='container_as_wrapper'>
+          <div className='row_as_wrapper'>
+              
+            {arrPlanet?.map((item, index) => {
+              return (
+                <div className='col-lg-2 col-sm-4 col-xs-6' key={index}>
+                  <NavLink to={`planetdetail/${item.id}`}>
+                    <div className='as_sign_box text-centerr'>
+                      <a href='service_single.html'>
+                        <span className='as_sign'>
+                          <img src={item.description} alt />
+                        </span>
+                        <div>
+                          <h5>
+                            {item.name}
+                          </h5>
 
-<div style={{ width: "95%", margin: "0 auto" }}>
-        <div className="row bg-white">
-          <div className="col-6 ">
-            <div className="p-2">
-              <h3>{ChiTietPlanetsAction[0]?.name}</h3>
-              <p>
-                ({moment(ChiTietPlanetsAction[0]?.dateStart).format("DD/MM")}) - (
-                {moment(ChiTietPlanetsAction[0]?.dateEnd).format("DD/MM")})
-              </p>
-              <div className="d-flex justify-content-center mt-5">
-                <img
-                  src={ChiTietPlanetsAction[0]?.imageUrl}
-                  className="rounded mx-100 d-block"
-                  style={{
-                    height: "300px",
-                    width: "300px",
-                    paddingBottom: "50px",
-                  }}
-                />
-              </div>
-            </div>
-          </div>
-          <div className="col-6">
-            <div>
-              <h6 className="mt-5">Chòm Sao {ChiTietPlanetsAction[0]?.name}</h6>
-              <p className="mt-3">
-                <span className="font-weight-bold">Biểu Tượng : </span>
-                {ChiTietPlanetsAction[0]?.name}
-              </p>
-              <p className="mt-3">
-                <span className="font-weight-bold">Thể Thức: </span>
-                {ChiTietPlanetsAction[0]?.name}
-              </p>
-              <p className="mt-3">
-                <span className="font-weight-bold">Nguyên Tố : </span>
-                {ChiTietPlanetsAction[0]?.name}
-              </p>
-              <p className="mt-3">
-                <span className="font-weight-bold">Hành Tinh : </span>
-                {ChiTietPlanetsAction[0]?.name}
-              </p>
-              <p className="mt-3">
-                <span className="font-weight-bold">Cung Địa Bàn : </span>
-                {ChiTietPlanetsAction[0]?.name}
-              </p>
-              <p className="mt-3">
-                <span className="font-weight-bold">Tuyên Ngôn : </span>
-                {ChiTietPlanetsAction[0]?.name}
-              </p>
-              <p className="mt-3">
-                <span className="font-weight-bold">Nội Dung Ngắn: </span>
-                {ChiTietPlanetsAction[0]?.descriptionShort}
-              </p>
-            </div>
+                          <p>
+                            {item.datestart}
+                          </p>
+                        </div>
+                      </a>
+                    </div>
+                  </NavLink>
+                </div>
+              )
+            })}
           </div>
         </div>
-      </div>
+      </section>
     </div>
-  )
+  )           
 }
-
-export default planet
+export default Planet

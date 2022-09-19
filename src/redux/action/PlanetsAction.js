@@ -8,7 +8,7 @@ export const GetPlanetsAction = () => {
       let result = await http.get('/Planets/Getallplanets')
       const action = {
         type: 'GET_LIST_PLANETS',
-        arrPlanets: result.data.data
+        arrPlanet: result.data.data
       }
       dispatch(action)
     } catch (error) {
