@@ -1,7 +1,9 @@
 import { DownOutlined } from "@ant-design/icons";
 import { border } from "@mui/system";
 import { Badge, Dropdown, Menu, Space, Table } from "antd";
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { GetCustomersAction } from "../redux/action/CustomersAction";
 const menu = (
   <Menu
     items={[
@@ -18,6 +20,14 @@ const menu = (
 );
 
 const Customer = () => {
+  const dispatch = useDispatch();
+  const { arrCustomers } = useSelector(rootReducer => rootReducer.CustomersReducer);
+  console.log('thinh' + arrCustomers);
+
+  useEffect(() => {
+    const action = GetCustomersAction();
+    dispatch(action);
+  }, []);
   const expandedRowRender = () => {
     const columns = [
       {
@@ -78,7 +88,7 @@ const Customer = () => {
     ];
     const data = [];
 
-    for (let i = 0; i < 3; ++i) {
+    for (let i = 0;i < 3;++i) {
       data.push({
         key: i.toString(),
         date: "2014-12-24 23:12:00",
@@ -93,58 +103,79 @@ const Customer = () => {
   const columns = [
     {
       title: "Stt",
-      dataIndex: "stt",
-      key: "stt",
+      dataIndex: "key",
+      key: "key",
     },
     {
       title: "Tên đăng nhập",
-      dataIndex: "name",
-      key: "name",
+      dataIndex: "fullname",
+      key: "fullname",
     },
-    {
-      title: "Số điện thoại",
-      dataIndex: "Tên nhà",
-      key: "Tên nhà",
-    },
+    // {
+    //   title: "Số điện thoại",
+    //   dataIndex: "Tên nhà",
+    //   key: "Tên nhà",
+    // },
     {
       title: "Trạng thái",
-      dataIndex: "Biểu Tượng",
-      key: "Biểu Tượng",
+      dataIndex: "status",
+      key: "status",
     },
-    {
-      title: "Action",
-      dataIndex: "Biểu Tượng",
-      key: "Biểu Tượng",
-    },
+    // {
+    //   title: "Action",
+    //   dataIndex: "Biểu Tượng",
+    //   key: "Biểu Tượng",
+    // },
     {
       title: "Action",
       key: "operation",
       render: () => (
-        <button
-          style={{
-            backgroundColor: "#5c6bc0",
-            border: "1px solid #5c6bc0",
-            borderRadius: "5px",
-          }}
-        >
-          Publish
-        </button>
+        <div>
+          <button
+            style={{
+              backgroundColor: "#5c6bc0",
+              border: "1px solid #5c6bc0",
+              borderRadius: "5px",
+            }}
+          >
+            Edit
+          </button>
+          <button
+            style={{
+              marginLeft: '10px',
+              backgroundColor: "rgba(0,0,0,0.5)",
+              border: "1px solid #5c6bc0",
+              borderRadius: "5px",
+            }}
+            onClick={() => {
+              console.log();
+            }}
+          >
+            Delete
+          </button>
+        </div>
       ),
     },
   ];
   const data = [];
 
-  for (let i = 0; i < 3; ++i) {
-    data.push({
-      key: i.toString(),
-      name: "NHÀ 1",
-      platform: "iOS",
-      version: "10.3.4.5654",
-      upgradeNum: 500,
-      creator: "Jack",
-      createdAt: "2014-12-24 23:12:00",
+  arrCustomers.map((item, index) => {
+    return data.push({
+      key: index++,
+      fullName: `${item.fullname}`,
+      name: `${item.email}`,
+      status: `${item.status}`,
+      operation: `${item.id}`,
+
+      // platform: "iOS",
+      // version: "10.3.4.5654",
+      // upgradeNum: 500,
+      // creator: "Jack",
+      // createdAt: "2014-12-24 23:12:00",
     });
   }
+  )
+
 
   return (
     <>
@@ -156,6 +187,11 @@ const Customer = () => {
         }}
         dataSource={data}
       />
+      {/* {arrCustomers.map((item, index) => {
+        return <div key={index}>
+          <p>{item.email}</p>
+        </div>
+      })} */}
     </>
   );
 };

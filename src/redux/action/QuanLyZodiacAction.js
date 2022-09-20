@@ -34,13 +34,7 @@ export const DetailZodiacAction = id => {
 export const EditZodiacAction = formValue => {
   return async dispatch => {
     try {
-      let result = await axios({
-        url:
-          'https://www.psychologicalcounselingv1.somee.com/api/Zodiacs/update',
-
-        method: 'PUT',
-        data: formValue
-      })
+      let result = await http.put('Zodiacs/update', formValue)
 
       const action = QuanLyZodiacAction()
       dispatch(action)
@@ -53,13 +47,10 @@ export const EditZodiacAction = formValue => {
 export const LayDanhSachHousesAction = () => {
   return async dispatch => {
     try {
-      let result = await axios({
-        url: 'https://www.psychologicalcounselingv1.somee.com/api/Houses',
-        method: 'GET'
-      })
+      let result = await http.get('/Houses/Getallhouses');
       const action = {
         type: 'LAY_DANH_SACH_HOUSES',
-        arrHouses: result.data
+        arrHouses: result.data.data,
       }
       dispatch(action)
     } catch (error) {

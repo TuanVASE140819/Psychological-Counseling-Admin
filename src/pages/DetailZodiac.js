@@ -25,11 +25,9 @@ import { NavLink } from "react-router-dom";
 export default function DetailZodiac (props) {
     const [show, setShow] = useState(""); // state của text editor
     const dispatch = useDispatch();
-    const { chiTietZodiac, arrHouses } = useSelector(
-        (rootReducer) => rootReducer.QuanLyZodiac
-    );
+    const { chiTietZodiac, arrHouses } = useSelector((rootReducer) => rootReducer.QuanLyZodiac);
 
-    console.log(chiTietZodiac);
+    console.log(arrHouses);
     useEffect(() => {
         const id = props.match.params.id;
 
@@ -322,25 +320,28 @@ export default function DetailZodiac (props) {
                 <Tabs.TabPane tab="Cung & Nhà" key="2" className="bg-white">
                     <div className="p-5">
                         <button className="btn btn-primary mb-5">Thêm Dữ Liệu</button>
-
-                        {arrHouses &&
-                            arrHouses?.map((item, index) => {
-                                return (
-                                    <div>
-                                        <div className="as_sign_box text-centerr">
-                                            <a href="service_single.html">
-                                                <span className="as_sign">
-                                                    <img src={item.imageUrl} alt />
-                                                </span>
-                                                <div>
-                                                    <h5>{item.name}</h5>
-                                                    <p>{item.datestart}</p>
-                                                </div>
-                                            </a>
-                                        </div>
+                        <div className='row_as_wrapper'>
+                            {arrHouses && arrHouses?.map((item, index) => {
+                                return <div className='col-lg-2 col-sm-4 col-xs-6' key={index}>
+                                    <div className='as_sign_box text-centerr'>
+                                        <a href='service_single.html'>
+                                            {/* <span className='as_sign'>
+                                            <img src={item.imageUrl} alt />
+                                        </span> */}
+                                            <div>
+                                                <h5>
+                                                    {item.name}
+                                                </h5>
+                                                <p>
+                                                    {item.element}
+                                                </p>
+                                            </div>
+                                        </a>
                                     </div>
-                                );
+
+                                </div>
                             })}
+                        </div>
                         <div
                             className="container"
                             style={{
