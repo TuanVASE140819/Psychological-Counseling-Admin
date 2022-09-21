@@ -3,6 +3,7 @@ import { border } from "@mui/system";
 import { Badge, Dropdown, Menu, Space, Table } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { GetCustomersAction } from "../redux/action/CustomersAction";
 const menu = (
   <Menu
@@ -29,64 +30,64 @@ const Customer = () => {
     dispatch(action);
   }, []);
   const expandedRowRender = () => {
-    const columns = [
-      {
-        title: "Tên",
-        dataIndex: "date",
-        key: "date",
-      },
-      {
-        title: "Hình đại diện",
-        dataIndex: "name",
-        key: "name",
-      },
-      {
-        title: "Ngày sinh",
-        key: "state",
-        render: () => (
-          <span>
-            <Badge status="success" />
-            Finished
-          </span>
-        ),
-      },
-      {
-        title: "Nơi sinh",
-        dataIndex: "name",
-        key: "name",
-      },
-      {
-        title: "Action",
-        dataIndex: "operation",
-        key: "operation",
-        render: () => (
-          <div>
-            <button
-              style={{
-                marginRight: "15px",
-                border: "1px solid #5c6bc0",
-                backgroundColor: "#5c6bc0",
-                color: "#fff",
-                borderRadius: "5px",
-              }}
-            >
-              Edit
-            </button>
-            <button
-              style={{
-                border: "1px solid #5c6bc0 ",
-                backgroundColor: "#42a5f5",
-                color: "#fff",
-                borderRadius: "5px",
-              }}
-            >
-              Delete
-            </button>
-          </div>
-        ),
-      },
-    ];
-    const data = [];
+    // const columns = [
+    //   {
+    //     title: "Tên",
+    //     dataIndex: "date",
+    //     key: "date",
+    //   },
+    //   {
+    //     title: "Hình đại diện",
+    //     dataIndex: "name",
+    //     key: "name",
+    //   },
+    //   {
+    //     title: "Ngày sinh",
+    //     key: "state",
+    //     render: () => (
+    //       <span>
+    //         <Badge status="success" />
+    //         Finished
+    //       </span>
+    //     ),
+    //   },
+    //   {
+    //     title: "Nơi sinh",
+    //     dataIndex: "name",
+    //     key: "name",
+    //   },
+    //   {
+    //     title: "Action",
+    //     dataIndex: "operation",
+    //     key: "operation",
+    //     render: () => (
+    //       <div>
+    //         <button
+    //           style={{
+    //             marginRight: "15px",
+    //             border: "1px solid #5c6bc0",
+    //             backgroundColor: "#5c6bc0",
+    //             color: "#fff",
+    //             borderRadius: "5px",
+    //           }}
+    //         >
+    //           Edit
+    //         </button>
+    //         <button
+    //           style={{
+    //             border: "1px solid #5c6bc0 ",
+    //             backgroundColor: "#42a5f5",
+    //             color: "#fff",
+    //             borderRadius: "5px",
+    //           }}
+    //         >
+    //           Delete
+    //         </button>
+    //       </div>
+    //     ),
+    //   },
+    // ];
+    // const data = [];
 
     for (let i = 0;i < 3;++i) {
       data.push({
@@ -153,7 +154,9 @@ const Customer = () => {
           >
             Delete
           </button> */}
+          <NavLink to='/profile'>Profile</NavLink>
         </div>
+
       ),
     },
   ];
@@ -181,11 +184,13 @@ const Customer = () => {
     <>
       <Table
         columns={columns}
-        expandable={{
-          expandedRowRender,
-          defaultExpandedRowKeys: ["0"],
-        }}
+        // expandable={{
+        //   expandedRowRender,
+        //   defaultExpandedRowKeys: ["0"],
+
+        // }}
         dataSource={data}
+
       />
       {/* {arrCustomers.map((item, index) => {
         return <div key={index}>

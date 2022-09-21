@@ -19,7 +19,7 @@ import Footer from "./Footer";
 
 const { Header: AntHeader, Content, Sider } = Layout;
 
-function Main({ children }) {
+function Main ({ children }) {
   const [visible, setVisible] = useState(false);
   const [placement, setPlacement] = useState("right");
   const [sidenavColor, setSidenavColor] = useState("#e16ce6");
@@ -44,9 +44,8 @@ function Main({ children }) {
 
   return (
     <Layout
-      className={`layout-Dashboard ${
-        pathname === "profile" ? "layout-profile" : ""
-      } ${pathname === "rtl" ? "layout-Dashboard-rtl" : ""}`}
+      className={`layout-Dashboard ${pathname === "profile" ? "layout-profile" : ""
+        } ${pathname === "rtl" ? "layout-Dashboard-rtl" : ""}`}
     >
       <Drawer
         title={false}
@@ -56,22 +55,19 @@ function Main({ children }) {
         visible={visible}
         key={placement === "right" ? "left" : "right"}
         width={250}
-        className={`drawer-sidebar ${
-          pathname === "rtl" ? "drawer-sidebar-rtl" : ""
-        } `}
+        className={`drawer-sidebar ${pathname === "rtl" ? "drawer-sidebar-rtl" : ""
+          } `}
       >
         <Layout
-          className={`layout-Dashboard ${
-            pathname === "rtl" ? "layout-Dashboard-rtl" : ""
-          }`}
+          className={`layout-Dashboard ${pathname === "rtl" ? "layout-Dashboard-rtl" : ""
+            }`}
         >
           <Sider
             trigger={null}
             width={250}
             theme="light"
-            className={`sider-primary ant-layout-sider-primary ${
-              sidenavType === "#fff" ? "active-route" : ""
-            }`}
+            className={`sider-primary ant-layout-sider-primary ${sidenavType === "#fff" ? "active-route" : ""
+              }`}
             style={{ background: sidenavType }}
           >
             <Sidenav color={sidenavColor} />
@@ -87,9 +83,8 @@ function Main({ children }) {
         trigger={null}
         width={250}
         theme="light"
-        className={`sider-primary ant-layout-sider-primary ${
-          sidenavType === "#fff" ? "active-route" : ""
-        }`}
+        className={`sider-primary ant-layout-sider-primary ${sidenavType === "#fff" ? "active-route" : ""
+          }`}
         style={{ background: sidenavType }}
       >
         <Sidenav color={sidenavColor} />

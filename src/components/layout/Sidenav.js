@@ -15,7 +15,7 @@ import { Menu, Button } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import "./menu.css";
-function Sidenav({ color }) {
+function Sidenav ({ color }) {
   const { pathname } = useLocation();
   const page = pathname.replace("/", "");
 
@@ -468,9 +468,9 @@ function Sidenav({ color }) {
           </NavLink>
         </Menu.Item>
 
-       
 
-        <Menu.SubMenu title="Đăng nhập"   icon={<span className="icon">{horoscope}</span>}
+
+        <Menu.SubMenu title="Đăng nhập" icon={<span className="icon">{horoscope}</span>}
           style={{
             background: "",
             margin: "-8px",
@@ -482,11 +482,11 @@ function Sidenav({ color }) {
             </NavLink>
           </Menu.Item>
           <Menu.Item key="8">
-          <NavLink to="/sign-in">
-            <span className="icon">{signin}</span>
-            <span className="label">Sign In</span>
-          </NavLink>
-        </Menu.Item>
+            <NavLink to="/sign-in">
+              <span className="icon">{signin}</span>
+              <span className="label">Sign In</span>
+            </NavLink>
+          </Menu.Item>
         </Menu.SubMenu>
       </Menu>
       {/* <div className="aside-footer">
