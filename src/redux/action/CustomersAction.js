@@ -10,7 +10,8 @@ export const GetCustomersAction = () => {
         type: 'GET_LIST_CUSTOMERS',
         arrCustomers: result.data.data
       }
-      dispatch(action)
+      dispatch(action);
+      console.log(result.data.data);
     } catch (error) {
       console.log(error)
     }

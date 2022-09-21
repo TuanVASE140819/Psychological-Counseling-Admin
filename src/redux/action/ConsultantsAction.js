@@ -64,3 +64,20 @@ export const DeleteConsultantsAction = id => {
     }
   }
 }
+export const CreateConsultantsAction = upload => {
+  return async dispatch => {
+    try {
+      let result = await axios({
+        url: 'http://www.psychologicalcounselingv1.somee.com/api/Consultants/create',
+        method: "POST",
+        data: upload
+      })
+      console.log(result);
+      const action = GetConsultantsAction()
+      dispatch(action)
+      swal('Thành công !', ' ', 'success')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+}

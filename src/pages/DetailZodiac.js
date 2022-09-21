@@ -22,6 +22,11 @@ import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 import { NavLink } from "react-router-dom";
 
+//img
+import { storage } from "../components/firebase";
+import { ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
+import { v4 } from "uuid";
+
 export default function DetailZodiac(props) {
   const [show, setShow] = useState(""); // state của text editor
   const dispatch = useDispatch();
@@ -29,7 +34,7 @@ export default function DetailZodiac(props) {
     (rootReducer) => rootReducer.QuanLyZodiac
   );
 
-  console.log(chiTietZodiac);
+  console.log(arrHouses);
   useEffect(() => {
     const id = props.match.params.id;
 
@@ -69,6 +74,20 @@ export default function DetailZodiac(props) {
     const action = GetHousesAction();
     dispatch(action);
   }, []);
+  const [imageUpload, setImageUpload] = useState(null);
+  const [imageList, setImageList] = useState(null);
+  const [url, setUrl] = useState(null);
+  const imageListRef = ref(storage, "images");
+
+  const upLoadImage = (e) => {
+    if (imageUpload == null) return;
+    const imageRef = ref(storage, `images/${imageUpload.name + v4()}`);
+    uploadBytes(imageRef, imageUpload);
+  };
+  console.log(imageUpload);
+
+  function chooseFile(fileInput) {}
+
   return (
     <div>
       <div style={{ width: "95%", margin: "0 auto" }}>
@@ -197,6 +216,7 @@ export default function DetailZodiac(props) {
                               />
                             </div>
                           </div>
+
                           <div className="col-md-6 col-sm-6 col-12">
                             <div className="form-group">
                               <label>Ngày Tháng Bắt Đầu: </label>
@@ -223,35 +243,24 @@ export default function DetailZodiac(props) {
                           <div className="col-md-12 col-sm-6 col-12">
                             <div className="form-group">
                               <label>Mô tả ngắn : </label>
-                              {/* <ReactQuill className="shadow-sm"
-                                                                theme="snow"
-                                                                style={{
-                                                                    height: 200,
-                                                                    marginTop: '1rem',
-                                                                    display: 'flex',
-                                                                    flexDirection: 'column'
-                                                                }}
 
-                                                                value={show}
+                              <div >
+                                <div>{URL}</div>
+                                <input
+                                  type={"file"}
+                                  accept="image/gif, image/jpeg, image/png"
+                                  onChange={(event) => {
+                                    var reader = new FileReader();
 
-                                                                modules={{
-                                                                    toolbar: [
-                                                                        [{ 'header': '1' }, { 'header': '2' }, { 'font': [] }], [{ size: [] }],
-                                                                        ['bold', 'italic', 'underline', 'strike', 'blockquote'],
-                                                                        [{ 'align': [] }],
-                                                                        [{ 'color': [] }, { 'background': [] }],
-                                                                        [{ 'list': 'ordered' }, { 'list': 'bullet' }, { 'indent': '-1' }, { 'indent': '+1' }],
-                                                                        ['link', "video", "image", "code-block"],
-                                                                        ['clean']
-                                                                    ],
-                                                                }}
-                                                                formats={[
-                                                                    'header', 'font', 'size',
-                                                                    'bold', 'italic', 'underline', 'strike', 'blockquote', 'color', 'background',
-                                                                    'list', 'bullet', 'indent', 'link', 'video', 'image', "code-block", "align"
-                                                                ]}
-                                                                name='descriptionShort' onChange={formik.handleChange}
-                                                            /> */}
+                                    reader.onload = function (e) {
+                                      "#image".attr("src", e.target.result);
+                                      reader.readAsDataURL(e.target.files[0]);
+                                    };
+                                  }}
+                                />
+                                <button onClick={upLoadImage}>Upload</button>
+                                
+                              </div>
                               <textarea
                                 className="form-control"
                                 name="descriptionShort"
@@ -322,25 +331,26 @@ export default function DetailZodiac(props) {
         <Tabs.TabPane tab="Cung & Nhà" key="2" className="bg-white">
           <div className="p-5">
             <button className="btn btn-primary mb-5">Thêm Dữ Liệu</button>
-
-            {arrHouses &&
-              arrHouses?.map((item, index) => {
-                return (
-                  <div>
-                    <div className="as_sign_box text-centerr">
-                      <a href="service_single.html">
-                        <span className="as_sign">
-                          <img src={item.imageUrl} alt />
-                        </span>
-                        <div>
-                          <h5>{item.name}</h5>
-                          <p>{item.datestart}</p>
-                        </div>
-                      </a>
+            <div className="row_as_wrapper">
+              {arrHouses &&
+                arrHouses?.map((item, index) => {
+                  return (
+                    <div className="col-lg-2 col-sm-4 col-xs-6" key={index}>
+                      <div className="as_sign_box text-centerr">
+                        <a href="service_single.html">
+                          {/* <span className='as_sign'>
+                                            <img src={item.imageUrl} alt />
+                                        </span> */}
+                          <div>
+                            <h5>{item.name}</h5>
+                            <p>{item.element}</p>
+                          </div>
+                        </a>
+                      </div>
                     </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+            </div>
             <div
               className="container"
               style={{

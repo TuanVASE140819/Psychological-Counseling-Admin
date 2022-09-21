@@ -8,7 +8,8 @@ import { ChiTietConsultantsAction, DeleteConsultantsAction, EditConsultantsActio
 import EditConsultants from "./EditConsultants";
 import { useFormik } from "formik";
 import moment from "moment";
-import {Tag, Radio} from 'antd';
+import { Tag, Radio } from 'antd';
+import { NavLink } from "react-router-dom";
 
 export default function Consultant () {
 
@@ -26,13 +27,13 @@ export default function Consultant () {
   });
   const [open, setOpen] = React.useState(false);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
+  // const handleClickOpen = () => {
+  //   setOpen(true);
+  // };
 
-  const handleClose = () => {
-    setOpen(false);
-  };
+  // const handleClose = () => {
+  //   setOpen(false);
+  // };
 
   const onChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
@@ -41,46 +42,46 @@ export default function Consultant () {
     e.preventDefault();
   };
 
-  const handleFromSubmit = async () => {
-    // store the states in the form data
-    const loginFormData = new FormData();
-    loginFormData.append("name", formData.name);
-    loginFormData.append("email", formData.email);
-    loginFormData.append("phone", formData.phone);
-    loginFormData.append("address", formData.address);
-    try {
-      // make axios post request
-      // const response = await axios({
-      //   method: "post",
-      //   url: "https://www.psychologicalcounselingv1.somee.com/api/Consultants/create",
-      //   data: loginFormData,
-      //   headers: { "Content-Type": "multipart/form-data" },
+  // const handleFromSubmit = async () => {
+  //   // store the states in the form data
+  //   const loginFormData = new FormData();
+  //   loginFormData.append("name", formData.name);
+  //   loginFormData.append("email", formData.email);
+  //   loginFormData.append("phone", formData.phone);
+  //   loginFormData.append("address", formData.address);
+  //   try {
+  //     // make axios post request
+  //     // const response = await axios({
+  //     //   method: "post",
+  //     //   url: "https://www.psychologicalcounselingv1.somee.com/api/Consultants/create",
+  //     //   data: loginFormData,
+  //     //   headers: { "Content-Type": "multipart/form-data" },
 
-      // }).then((res) => {
-      //   handleClose();
-      // });
+  //     // }).then((res) => {
+  //     //   handleClose();
+  //     // });
 
-      //
-      axios
-        .post(
-          `https://www.psychologicalcounselingv1.somee.com/api/Consultants/create`,
-          loginFormData,
-          {
-            headers: {
-              "Content-Type": "multipart/form-data",
-            },
-          }
-        )
-        .then((res) => {
-          handleClose();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  //     //
+  //     axios
+  //       .post(
+  //         `https://www.psychologicalcounselingv1.somee.com/api/Consultants/create`,
+  //         loginFormData,
+  //         {
+  //           headers: {
+  //             "Content-Type": "multipart/form-data",
+  //           },
+  //         }
+  //       )
+  //       .then((res) => {
+  //         handleClose();
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   React.useEffect(() => {
     // axios
@@ -135,8 +136,8 @@ export default function Consultant () {
     <div>
       <FormDialog
         open={open}
-        handleFromSubmit={handleFromSubmit}
-        handleClose={handleClose}
+        // handleFromSubmit={handleFromSubmit}
+        // handleClose={handleClose}
         data={formData}
         onChange={onChange}
       />
@@ -144,9 +145,7 @@ export default function Consultant () {
         <input type="text" onChange={(e) => setSearch(e.target.value)} />
         <button className="btn btn-primary">Search</button>
         <grid>
-          <button className="btn-createNew" onClick={handleClickOpen}>
-            Create New
-          </button>
+          <NavLink to='/createconsultant' className='bg-primary text-white p-2'> Create New</NavLink>
         </grid>
       </form>
 
@@ -220,7 +219,7 @@ export default function Consultant () {
                 </td>
                 {/* Kích hoạt trạng thái tk */}
                 <td>
-                   {item.status === "active" ? (
+                  {item.status === "active" ? (
                     <button
                       className="btn btn-danger"
                       onClick={() => {
@@ -242,7 +241,7 @@ export default function Consultant () {
                       Hoạt động
                     </button>
                   )}
-                      
+
                   {/* <button 
                     className="btn btn-primary"
                   onClick={() => {
@@ -303,8 +302,8 @@ export default function Consultant () {
 
                     <div className='col-md-4 col-sm-12 col-12'>
                       <div className='form-group'>
-                      <label>
-                            <span>*</span>Giới Tính:{' '}
+                        <label>
+                          <span>*</span>Giới Tính:{' '}
                         </label>
                         {/* <select className="form-control" name= ""
                         >
@@ -314,15 +313,15 @@ export default function Consultant () {
                             
                       
                         </select> */}
-                         {/* Edit gender */}
-                          <Radio.Group name="
+                        {/* Edit gender */}
+                        <Radio.Group name="
                           " onChange={formik.handleChange} value={formik.values.gender}>
-                            <Radio value="1">Nam</Radio>
-                            <Radio value="">Nữ</Radio>
-                          </Radio.Group>
+                          <Radio value="1">Nam</Radio>
+                          <Radio value="">Nữ</Radio>
+                        </Radio.Group>
 
 
-     
+
                       </div>
                     </div>
                     <div className='col-md-4 col-sm-12 col-12'>
