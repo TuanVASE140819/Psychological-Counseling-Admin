@@ -111,11 +111,11 @@ const Customer = () => {
       dataIndex: "fullname",
       key: "fullname",
     },
-    // {
-    //   title: "Số điện thoại",
-    //   dataIndex: "Tên nhà",
-    //   key: "Tên nhà",
-    // },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+    },
     {
       title: "Trạng thái",
       dataIndex: "status",
@@ -138,9 +138,9 @@ const Customer = () => {
               borderRadius: "5px",
             }}
           >
-            Edit
+            Sửa
           </button>
-          <button
+          {/* <button
             style={{
               marginLeft: '10px',
               backgroundColor: "rgba(0,0,0,0.5)",
@@ -152,7 +152,7 @@ const Customer = () => {
             }}
           >
             Delete
-          </button>
+          </button> */}
         </div>
       ),
     },
@@ -161,9 +161,9 @@ const Customer = () => {
 
   arrCustomers.map((item, index) => {
     return data.push({
-      key: index++,
-      fullName: `${item.fullname}`,
-      name: `${item.email}`,
+      key: `${item.id}`,
+      fullname: `${item.fullname}`,
+      email: `${item.email}`,
       status: `${item.status}`,
       operation: `${item.id}`,
 
