@@ -4,6 +4,7 @@ import { Badge, Dropdown, Menu, Space, Table } from "antd";
 import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { GetCustomersAction } from "../redux/action/CustomersAction";
+import Tag from "antd/lib/tag";
 const menu = (
   <Menu
     items={[
@@ -70,7 +71,7 @@ const Customer = () => {
                 borderRadius: "5px",
               }}
             >
-              Edit
+              Sửa
             </button>
             <button
               style={{
@@ -80,7 +81,7 @@ const Customer = () => {
                 borderRadius: "5px",
               }}
             >
-              Delete
+              Xóa
             </button>
           </div>
         ),
@@ -111,21 +112,24 @@ const Customer = () => {
       dataIndex: "fullname",
       key: "fullname",
     },
-    // {
-    //   title: "Số điện thoại",
-    //   dataIndex: "Tên nhà",
-    //   key: "Tên nhà",
-    // },
+    {
+      title: "Email",
+      dataIndex: "email",
+      key: "email",
+    },
     {
       title: "Trạng thái",
       dataIndex: "status",
       key: "status",
+      render: status => {
+        let color = status === "active" ? "green" : "volcano";
+        return (
+          <Tag color={color} key={status}>
+            {status}
+          </Tag>
+        );
+      }
     },
-    // {
-    //   title: "Action",
-    //   dataIndex: "Biểu Tượng",
-    //   key: "Biểu Tượng",
-    // },
     {
       title: "Action",
       key: "operation",
@@ -138,7 +142,7 @@ const Customer = () => {
               borderRadius: "5px",
             }}
           >
-            Edit
+            Sửa
           </button>
           <button
             style={{
@@ -151,7 +155,7 @@ const Customer = () => {
               console.log();
             }}
           >
-            Delete
+            Xóa
           </button>
         </div>
       ),
@@ -161,9 +165,9 @@ const Customer = () => {
 
   arrCustomers.map((item, index) => {
     return data.push({
-      key: index++,
-      fullName: `${item.fullname}`,
-      name: `${item.email}`,
+      key: `${item.id}`,
+      fullname: `${item.fullname}`,
+      email: `${item.email}`,
       status: `${item.status}`,
       operation: `${item.id}`,
 

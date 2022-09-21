@@ -332,9 +332,9 @@ export default function DetailZodiac (props) {
                                                 <h5>
                                                     {item.name}
                                                 </h5>
-                                                <p>
+                                                {/* <p>
                                                     {item.element}
-                                                </p>
+                                                </p> */}
                                             </div>
                                         </a>
                                     </div>
